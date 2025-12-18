@@ -1,0 +1,1290 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Basic SEO & Performance -->
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Kagzso — AI-Driven Automation & RPA Solutions | Enterprise Automation Services</title>
+  <meta name="description" content="Kagzso delivers AI-driven automation solutions including RPA, BPA, Intelligent Automation, and Agentic AI. Transform manual workflows into intelligent, self-optimizing operations. Trusted automation consulting and implementation for businesses." />
+  <meta name="theme-color" content="#3A86FF" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CDN (fast prototype) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lottie (animations) -->
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+  <!-- Organization structured data -->
+  <!-- Organization structured data -->
+  <!-- TEMPLATE: Update company name, URL, and logo path in structured data below -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "KAGZSO",
+    "url": "https://www.kagzso.com",
+    "logo": "./images/kagzso-hexagon-logo.png",
+    "sameAs": []
+  }
+  </script>
+
+  <style>
+    :root{
+      --primary: #3A86FF;
+      --secondary: #7B2CBF;
+      --accent: #00F5D4;
+      --teal-1: #00D4AA;
+      --teal-2: #00F5D4;
+      --light: #F8F9FA;
+      --dark: #0A0A0A;
+    }
+    body { font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background-color: #fff; color: #0A0A0A; }
+    
+    /* Google/Zoho style colorful company name */
+    .company-name {
+      display: inline-flex;
+      align-items: center;
+      gap: 0;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+    .company-name .letter {
+      display: inline-block;
+    }
+    .company-name .letter-1 { color: #4285F4; } /* K - Blue */
+    .company-name .letter-2 { color: #EA4335; } /* A - Red */
+    .company-name .letter-3 { color: #34A853; } /* G - Green */
+    .company-name .letter-4 { color: #FBBC05; } /* Z - Yellow */
+    .company-name .letter-5 { color: #34A853; } /* S - Green */
+    .company-name .letter-6 { color: #EA4335; } /* O - Red */
+    .glass { background: rgba(255,255,255,0.66); backdrop-filter: blur(8px) saturate(120%); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.35); }
+    .btn-glow { transition: transform .18s ease, box-shadow .18s ease; }
+    .btn-glow:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(58,134,255,0.16); }
+    
+    /* Temporary placeholder logo - replace with actual logo file */
+    .logo-placeholder {
+      display: inline-block;
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, #3A86FF 0%, #00D4AA 100%);
+      border-radius: 10px;
+      position: relative;
+      box-shadow: 0 2px 12px rgba(58, 134, 255, 0.25);
+      flex-shrink: 0;
+    }
+    .logo-placeholder::before {
+      content: 'K';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-weight: 800;
+      font-size: 24px;
+      font-family: 'Poppins', sans-serif;
+      letter-spacing: -0.5px;
+    }
+    .logo-placeholder.w-44 {
+      width: 176px;
+      height: 176px;
+    }
+    .logo-placeholder.w-44::before {
+      font-size: 96px;
+    }
+
+    /* Background brand texture */
+    .bg-brand {
+      background: linear-gradient(to bottom, rgba(255,255,255,0.95), rgba(248,250,252,0.98));
+    }
+
+    /* Circuit overlay */
+    .circuit-wrap { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; mix-blend-mode: screen; opacity: 0.95; }
+    .circuit-svg { width: 160%; height: 160%; transform: translate(-10%, -10%); }
+    .pulse { animation: pulse 3.6s ease-in-out infinite; transform-origin: center; filter: drop-shadow(0 6px 18px rgba(0,245,212,0.12)); }
+    .pulse.delay-1 { animation-delay: .2s; }
+    .pulse.delay-2 { animation-delay: .6s; }
+    .pulse.delay-3 { animation-delay: 1.0s; }
+    @keyframes pulse { 0%{opacity:.7;transform:scale(1);}50%{opacity:1;transform:scale(1.12);}100%{opacity:.7;transform:scale(1);} }
+
+    /* subtle floating */
+    .float-slow { animation: floatY 9s ease-in-out infinite; }
+    @keyframes floatY { 0%{transform:translateY(0);}50%{transform:translateY(-12px);}100%{transform:translateY(0);} }
+
+    /* Subtle fade-in animation for sections */
+    .fade-in-section {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .fade-in-section.fade-in-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Scroll offset for sticky header */
+    section[id] {
+      scroll-margin-top: 140px;
+    }
+    @media (max-width: 768px) {
+      section[id] {
+        scroll-margin-top: 100px;
+      }
+    }
+
+    /* responsive tweaks */
+    @media (max-width:640px) {
+      .hero-head { font-size: 1.6rem; line-height: 1.12; }
+      .circuit-svg { width: 220%; height: 220%; transform: translate(-35%, -20%); }
+    }
+  </style>
+</head>
+
+<body class="antialiased bg-brand">
+
+  <!-- NAV -->
+  <header class="sticky top-0 z-40 bg-white/60 backdrop-blur-sm">
+    <div class="max-w-7xl mx-auto px-5 md:px-8 py-4">
+      <!-- Contact Info Bar (Desktop) -->
+      <div class="hidden md:flex items-center justify-end gap-6 mb-3 text-xs text-slate-600">
+        <a href="tel:+917397111142" class="flex items-center gap-2 hover:text-[var(--primary)] transition">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+          </svg>
+          <span>+91 7397111142</span>
+        </a>
+        <a href="https://wa.me/917397111142" target="_blank" class="flex items-center gap-2 hover:text-[var(--primary)] transition">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+          </svg>
+          <span>WhatsApp</span>
+        </a>
+        <a href="mailto:kagzso.in@gmail.com" class="flex items-center gap-2 hover:text-[var(--primary)] transition">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+          <span>kagzso.in@gmail.com</span>
+        </a>
+      </div>
+
+      <!-- Main Header Content -->
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-3 z-50">
+          <!-- Company Logo - Update path to your logo file -->
+          <img src="./images/kagzso-hexagon-logo.png" alt="Kagzso Logo" class="w-11 h-11 object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+          <div class="logo-placeholder w-11 h-11" style="display:none;"></div>
+          <div>
+            <!-- Company name with colorful letters -->
+            <div class="company-name text-xl tracking-tight">
+              <span class="letter letter-1">K</span>
+              <span class="letter letter-2">A</span>
+              <span class="letter letter-3">G</span>
+              <span class="letter letter-4">Z</span>
+              <span class="letter letter-5">S</span>
+              <span class="letter letter-6">O</span>
+            </div>
+            <div class="text-xs text-slate-500 -mt-1">Automation & AI</div>
+          </div>
+        </div>
+
+        <nav class="hidden md:flex items-center gap-6 text-sm z-50">
+          <a href="#services" class="hover:text-[var(--primary)] transition">Services</a>
+          <a href="#automation" class="hover:text-[var(--primary)] transition">Automation Solutions</a>
+          <a href="#industries" class="hover:text-[var(--primary)] transition">Industries</a>
+          <a href="#why" class="hover:text-[var(--primary)] transition">Why Choose Us</a>
+          <a href="#contact" class="px-4 py-2 rounded-lg bg-[var(--primary)] text-white btn-glow">Get Assessment</a>
+        </nav>
+
+        <!-- Mobile Contact & Menu -->
+        <div class="md:hidden flex items-center gap-3 z-50">
+          <a href="tel:+917397111142" class="p-2 rounded-lg ring-1 ring-slate-200 hover:bg-slate-50">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-slate-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+            </svg>
+          </a>
+          <a href="https://wa.me/917397111142" target="_blank" class="p-2 rounded-lg ring-1 ring-slate-200 hover:bg-slate-50">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-slate-600" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+            </svg>
+          </a>
+          <button aria-label="Open menu" class="p-2 rounded-lg ring-1 ring-slate-200">☰</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Circuit overlay (AI lines, pulse) -->
+  <div class="circuit-wrap" aria-hidden="true">
+    <svg class="circuit-svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="g1" x1="0" x2="1">
+          <stop offset="0" stop-color="#00F5D4" stop-opacity="0.24"/>
+          <stop offset="1" stop-color="#3A86FF" stop-opacity="0.18"/>
+        </linearGradient>
+        <filter id="soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="8" result="b"/><feBlend in="SourceGraphic" in2="b"/></filter>
+      </defs>
+
+      <g stroke="url(#g1)" stroke-width="1.2" fill="none" opacity="0.9">
+        <path d="M120 180 C 220 120, 360 120, 540 180" stroke-linecap="round"/>
+        <path d="M520 200 C 640 260, 740 300, 980 220" stroke-linecap="round"/>
+        <path d="M80 420 C 220 360, 420 360, 680 420" stroke-linecap="round"/>
+        <path d="M900 140 C 1000 80, 1180 80, 1360 140" stroke-linecap="round" opacity="0.65"/>
+        <path d="M300 700 C 420 620, 520 600, 760 680" stroke-linecap="round" opacity="0.5"/>
+      </g>
+
+      <g stroke="#7B2CBF" stroke-opacity="0.06" stroke-width="1">
+        <path d="M260 190 L 260 260" />
+        <path d="M540 180 L 540 240" />
+        <path d="M740 300 L 740 340" />
+        <path d="M980 220 L 980 260" />
+      </g>
+
+      <g filter="url(#soft)" transform="translate(0,0)">
+        <circle cx="120" cy="180" r="6" fill="#00F5D4" class="pulse delay-1" />
+        <circle cx="540" cy="180" r="7" fill="#3A86FF" class="pulse delay-2" />
+        <circle cx="980" cy="220" r="5.5" fill="#00F5D4" class="pulse delay-3" />
+        <circle cx="760" cy="680" r="5.5" fill="#7B2CBF" class="pulse" />
+        <circle cx="420" cy="360" r="6" fill="#00F5D4" class="pulse delay-2" />
+      </g>
+
+      <g fill="#00F5D4" fill-opacity="0.03">
+        <rect x="60" y="60" width="3" height="3" rx="1.5"/>
+        <rect x="160" y="100" width="3" height="3" rx="1.5"/>
+        <rect x="300" y="80" width="3" height="3" rx="1.5"/>
+        <rect x="920" y="140" width="3" height="3" rx="1.5"/>
+        <rect x="1120" y="200" width="3" height="3" rx="1.5"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- MAIN -->
+  <main class="relative z-10">
+
+    <!-- HERO -->
+    <section class="relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-24 flex flex-col-reverse md:flex-row items-center gap-10">
+        <div class="w-full md:w-1/2 z-20">
+          <div class="inline-flex items-center gap-3 mb-4 px-3 py-1 rounded-full bg-white/60 backdrop-blur-sm">
+            <span class="text-xs font-semibold text-[var(--primary)]">TRUSTED BY GROWING BUSINESSES</span>
+            <span class="text-xs text-slate-600">ROI-Driven Automation</span>
+          </div>
+
+          <h1 class="hero-head font-poppins font-extrabold text-4xl md:text-5xl leading-tight">
+            AI-Driven Automation That Scales Your Business
+          </h1>
+
+          <p class="mt-6 text-lg text-slate-600 max-w-xl leading-relaxed">
+            From manual workflows to intelligent, self-optimizing operations powered by RPA, Intelligent Automation, and AI agents. 
+            Transform your business processes, reduce costs, and accelerate growth with enterprise-grade automation solutions.
+          </p>
+          
+          <p class="mt-4 text-slate-600 max-w-xl leading-relaxed">
+            Helping businesses eliminate repetitive work, reduce operational costs, and scale efficiently using RPA, Intelligent Automation, and AI Agents.
+          </p>
+
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="#contact" class="inline-flex items-center gap-3 px-5 py-3 rounded-lg bg-[var(--primary)] text-white font-semibold shadow-lg btn-glow">Get a Free Automation Assessment</a>
+            <a href="./automation-simulator/" target="_blank" class="inline-flex items-center gap-3 px-5 py-3 rounded-lg border border-slate-200">Book a Demo</a>
+          </div>
+
+        </div>
+
+        <div class="w-full md:w-1/2 flex justify-center z-20">
+          <div class="relative w-[420px] h-[420px] glass rounded-2xl p-6 shadow-2xl border border-white/20">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <!-- Company Logo - Update path to your logo file -->
+                <img src="./images/kagzso-hexagon-logo.png" alt="Kagzso Logo" class="w-10 h-10 object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <div class="logo-placeholder w-10 h-10" style="display:none;"></div>
+                <div class="text-lg font-semibold">Kagzso Automation</div>
+              </div>
+              <div class="text-xs text-slate-400">Live • Cloud</div>
+            </div>
+
+            <div class="mt-6 h-[260px] rounded-lg overflow-hidden">
+              <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_jcikwtux.json" background="transparent" speed="1" loop autoplay class="w-full h-full"></lottie-player>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How We Support Your Business -->
+    <section id="support" class="max-w-7xl mx-auto px-5 md:px-8 py-16 z-20 relative">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-poppins font-bold">How We Support Your Business</h2>
+        <p class="mt-3 text-slate-600 max-w-2xl mx-auto">Comprehensive automation services from strategy to implementation and beyond</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Automation Consulting -->
+        <article class="p-6 rounded-2xl glass shadow-sm transition-all hover:shadow-lg hover:-translate-y-1">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Automation Consulting & Feasibility Analysis</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Stop guessing which processes to automate. We analyze your operations, identify the highest-ROI opportunities, and create a clear roadmap. Result: You invest in automation that delivers measurable cost savings and efficiency gains from day one.</p>
+        </article>
+
+        <!-- RPA BPA Implementation -->
+        <article class="p-6 rounded-2xl glass shadow-sm transition-all hover:shadow-lg hover:-translate-y-1">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">End-to-End RPA & BPA Implementation</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">No internal IT team? No problem. We handle the entire automation project—from planning to deployment. Result: Your team experiences faster processing, fewer errors, and reduced manual workload without the complexity of managing it internally.</p>
+        </article>
+
+        <!-- Document Processing -->
+        <article class="p-6 rounded-2xl glass shadow-sm transition-all hover:shadow-lg hover:-translate-y-1">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Intelligent Document Processing</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Eliminate hours of manual data entry. Our AI-powered system reads invoices, forms, and documents automatically, extracts the right information, and enters it into your systems. Result: Process documents 10x faster with 99%+ accuracy, freeing staff for value-added work.</p>
+        </article>
+
+        <!-- AI Chatbots & Agents -->
+        <article class="p-6 rounded-2xl glass shadow-sm transition-all hover:shadow-lg hover:-translate-y-1">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">AI Chatbots & AI Agents</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Never miss a customer inquiry, even after hours. AI chatbots answer questions instantly, while intelligent agents handle routine decisions automatically. Result: Better customer experience, reduced response time, and lower support costs—available 24/7 without extra staffing.</p>
+        </article>
+
+        <!-- Workflow Orchestration -->
+        <article class="p-6 rounded-2xl glass shadow-sm transition-all hover:shadow-lg hover:-translate-y-1">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Workflow Orchestration</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Your systems don't talk to each other? We connect them. Automate entire processes that span multiple apps—orders flow from website to inventory to shipping without manual steps. Result: Faster order-to-delivery cycles, fewer bottlenecks, and seamless operations across all your tools.</p>
+        </article>
+
+        <!-- Dashboarding & Analytics -->
+        <article class="p-6 rounded-2xl glass shadow-sm transition-all hover:shadow-lg hover:-translate-y-1">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Dashboarding & Analytics</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Make data-driven decisions without spreadsheets. Custom dashboards show real-time performance, cost savings, and ROI from your automation. Result: See exactly how automation is improving your business with clear metrics and insights—no data science degree required.</p>
+        </article>
+
+        <!-- Post-Deployment Support -->
+        <article class="p-6 rounded-2xl glass shadow-sm transition-all hover:shadow-lg hover:-translate-y-1">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Post-Deployment Support & Optimization</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Your automation shouldn't break when systems update. We maintain everything, fix issues quickly, and continuously improve efficiency. Result: Reliable automation that keeps working as your business grows, with ongoing performance improvements and no downtime headaches.</p>
+        </article>
+
+        <!-- Scalability Planning -->
+        <article class="p-6 rounded-2xl glass shadow-sm transition-all hover:shadow-lg hover:-translate-y-1">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Scalability & Growth Planning</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Your automation shouldn't slow down as you grow. We design systems that handle 10x more volume without major changes. Result: Scale operations efficiently without proportional cost increases—automation grows with your business, not against it.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Automation Solutions -->
+    <section id="automation" class="bg-white/50 py-16 z-20 relative">
+      <div class="max-w-7xl mx-auto px-5 md:px-8">
+        <div class="text-center mb-8">
+          <h2 class="text-3xl font-poppins font-bold">Automation Solutions</h2>
+          <p class="mt-2 text-slate-500">Tailored automation systems to remove manual work and increase accuracy.</p>
+        </div>
+
+        <!-- First Row: Web Portal, Email & Communication, Customer Service -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Web Portal Automation -->
+          <article class="p-6 rounded-2xl glass shadow transition hover:scale-[1.02] hover:shadow-lg">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[#3A86FF] to-[#7B2CBF] text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+              </div>
+              <h3 class="text-lg font-semibold">Web Portal Automation</h3>
+            </div>
+            <p class="text-sm text-slate-600"><strong class="text-slate-800">Real-World Opportunity:</strong> Businesses interact with multiple web portals daily—government portals for compliance filings, vendor portals for invoice submissions, attendance systems for employee logs, and procurement platforms for purchase orders. Staff spend hours daily logging into portals, filling forms, and submitting data—a repetitive, error-prone process that must happen on time to avoid penalties or delays.</p>
+            <p class="text-sm text-slate-500 italic mt-2">Result: All portal interactions happen automatically at scheduled times—no manual logins, no missed deadlines, no data entry errors. Save 10-15 hours per week while ensuring 100% compliance and timely submissions.</p>
+            <ul class="mt-3 text-sm text-slate-600">
+              <li>Form submission automation</li>
+              <li>Data extraction & reporting</li>
+              <li>Scheduled tasks & alerts</li>
+            </ul>
+          </article>
+
+          <!-- Email & Communication Automation -->
+          <article class="p-6 rounded-2xl glass shadow transition hover:scale-[1.02] hover:shadow-lg">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[#3A86FF] to-[#7B2CBF] text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              </div>
+              <h3 class="text-lg font-semibold">Email & Communication Automation</h3>
+            </div>
+            <p class="text-sm text-slate-600"><strong class="text-slate-800">Real-World Opportunity:</strong> Teams send hundreds of emails and WhatsApp messages weekly—follow-ups, reminders, confirmations, notifications, and reports. Staff manually compose, send, and track communications, spending 5-8 hours weekly on routine messages. Important communications get missed, follow-ups are delayed, and customer responses lack consistency.</p>
+            <p class="text-sm text-slate-500 italic mt-2">Result: Automated email and WhatsApp workflows send personalized messages at the right time, appointment reminders sent via WhatsApp automatically, order confirmations and payment receipts delivered instantly, customer queries responded to 24/7 via WhatsApp bots, and reports distributed on schedule—ensure consistent communication across all channels, reduce communication workload by 75%, and never miss important follow-ups, customer inquiries, or notifications. WhatsApp automation handles customer support, order updates, payment reminders, and delivery notifications, improving customer engagement and satisfaction.</p>
+            <ul class="mt-3 text-sm text-slate-600">
+              <li>Automated email & WhatsApp follow-ups & reminders</li>
+              <li>WhatsApp bot for customer support & order updates</li>
+              <li>Email workflows & WhatsApp message scheduling</li>
+              <li>Report distribution & multi-channel notifications</li>
+            </ul>
+          </article>
+
+          <!-- Customer Service Automation -->
+          <article class="p-6 rounded-2xl glass shadow transition hover:scale-[1.02] hover:shadow-lg">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[#3A86FF] to-[#7B2CBF] text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+              </div>
+              <h3 class="text-lg font-semibold">Customer Service Automation</h3>
+            </div>
+            <p class="text-sm text-slate-600"><strong class="text-slate-800">Real-World Opportunity:</strong> Customer service teams handle repetitive inquiries, order status checks, refund requests, and complaint routing manually—responding to the same questions dozens of times daily. Staff spend 40-50% of time on routine queries that could be automated, limiting capacity to handle complex issues and impacting response times.</p>
+            <p class="text-sm text-slate-500 italic mt-2">Result: AI chatbots handle 70-80% of routine inquiries instantly 24/7, order status provided automatically, refund requests processed without manual review, and complex issues routed to human agents with full context—reduce response time from hours to seconds, improve customer satisfaction, and free staff for high-value interactions.</p>
+            <ul class="mt-3 text-sm text-slate-600">
+              <li>AI chatbots for instant responses</li>
+              <li>Order status & tracking automation</li>
+              <li>Ticket routing & escalation</li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- Second Row: Billing & Invoice, Payroll, Hospital & Healthcare -->
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Billing & Invoice Automation -->
+          <article class="p-6 rounded-2xl glass shadow transition hover:scale-[1.02] hover:shadow-lg">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[#3A86FF] to-[#7B2CBF] text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6M3 7h18M7 21h10a2 2 0 002-2V7"/></svg>
+              </div>
+              <h3 class="text-lg font-semibold">Billing & Invoice Automation</h3>
+            </div>
+            <p class="text-sm text-slate-600"><strong class="text-slate-800">Real-World Opportunity:</strong> Accounts payable teams receive 50-200 invoices weekly via email, print, or mail. Staff manually type invoice details into accounting systems, verify amounts, check for duplicates, and route for approvals—a 15-20 minute process per invoice prone to data entry errors and payment delays.</p>
+            <p class="text-sm text-slate-500 italic mt-2">Result: Process 100 invoices in 30 minutes instead of 25 hours, achieve 99.9% accuracy, catch duplicate invoices automatically, and speed up vendor payments—improving relationships and capturing early payment discounts.</p>
+            <ul class="mt-3 text-sm text-slate-600">
+              <li>OCR & invoice data extraction</li>
+              <li>Auto-entry to ERPs / Excel</li>
+              <li>Duplicate detection & validation</li>
+            </ul>
+          </article>
+
+          <!-- Payroll Automation -->
+          <article class="p-6 rounded-2xl glass shadow transition hover:scale-[1.02] hover:shadow-lg">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[#3A86FF] to-[#7B2CBF] text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6M3 7h18M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              </div>
+              <h3 class="text-lg font-semibold">Payroll Automation</h3>
+            </div>
+            <p class="text-sm text-slate-600"><strong class="text-slate-800">Real-World Opportunity:</strong> HR teams manually reconcile attendance data, calculate overtime, apply leave balances, and generate payslips for dozens or hundreds of employees monthly. This process takes 2-3 days and is prone to calculation errors that cause employee disputes and compliance issues.</p>
+            <p class="text-sm text-slate-500 italic mt-2">Result: Process payroll in 2 hours instead of 3 days, eliminate calculation errors, ensure 100% compliance, and reduce payroll disputes to zero—especially critical for retail chains and hospitals with shift workers.</p>
+            <ul class="mt-3 text-sm text-slate-600">
+              <li>Auto payroll calculations</li>
+              <li>Integration with attendance systems</li>
+              <li>Payslip & approval workflows</li>
+            </ul>
+          </article>
+
+          <!-- Hospital & Healthcare Automation -->
+          <article class="p-6 rounded-2xl glass shadow transition hover:scale-[1.02] hover:shadow-lg">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[#3A86FF] to-[#7B2CBF] text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+              </div>
+              <h3 class="text-lg font-semibold">Hospital & Healthcare Automation</h3>
+            </div>
+            <p class="text-sm text-slate-600"><strong class="text-slate-800">Real-World Opportunity:</strong> Hospitals manage patient appointments, medical records, billing, inventory tracking, and staff scheduling manually—processes that consume 30-40 hours weekly. Patient registration, insurance verification, appointment reminders, and discharge paperwork require extensive manual data entry and coordination across departments.</p>
+            <p class="text-sm text-slate-500 italic mt-2">Result: Patient registration automated, appointment reminders sent automatically, insurance verification happens instantly, medical records organized digitally, and inventory alerts prevent stockouts—reducing admin time by 60% and improving patient care efficiency.</p>
+            <ul class="mt-3 text-sm text-slate-600">
+              <li>Patient registration & appointment scheduling</li>
+              <li>Medical records & billing automation</li>
+              <li>Inventory management & alerts</li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- Third Row: School & Education, Data Entry, Timetable -->
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- School & Education Automation -->
+          <article class="p-6 rounded-2xl glass shadow transition hover:scale-[1.02] hover:shadow-lg">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[#3A86FF] to-[#7B2CBF] text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+              </div>
+              <h3 class="text-lg font-semibold">School & Education Automation</h3>
+            </div>
+            <p class="text-sm text-slate-600"><strong class="text-slate-800">Real-World Opportunity:</strong> Schools handle student enrollment, fee collection, attendance tracking, report card generation, and parent communication manually. Administrative staff spend 20-25 hours weekly on repetitive tasks like data entry, fee reminders, attendance compilation, and report generation—time that could be spent supporting students and teachers.</p>
+            <p class="text-sm text-slate-500 italic mt-2">Result: Student enrollment streamlined, fee payment reminders sent automatically, daily attendance compiled instantly, report cards generated without manual data entry, and parent notifications automated—reducing admin workload by 65% and improving parent-school communication.</p>
+            <ul class="mt-3 text-sm text-slate-600">
+              <li>Student enrollment & fee management</li>
+              <li>Attendance tracking & report generation</li>
+              <li>Parent communication automation</li>
+            </ul>
+          </article>
+
+          <!-- Data Entry Automation -->
+          <article class="p-6 rounded-2xl glass shadow transition hover:scale-[1.02] hover:shadow-lg">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[#3A86FF] to-[#7B2CBF] text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              </div>
+              <h3 class="text-lg font-semibold">Data Entry Automation</h3>
+            </div>
+            <p class="text-sm text-slate-600"><strong class="text-slate-800">Real-World Opportunity:</strong> Businesses rely on staff to manually type data from forms, emails, PDFs, and documents into databases, Excel sheets, or ERP systems—a time-consuming, error-prone task. Data entry teams process hundreds of records daily, with each entry taking 3-5 minutes and carrying risk of typos, missing fields, or duplicate entries that cause downstream problems.</p>
+            <p class="text-sm text-slate-500 italic mt-2">Result: Forms, documents, and emails automatically scanned and extracted, data validated, duplicates detected, and entries posted to systems instantly—process 500 records in 1 hour instead of 25 hours, with 99%+ accuracy and zero manual typing.</p>
+            <ul class="mt-3 text-sm text-slate-600">
+              <li>OCR & document data extraction</li>
+              <li>Form processing & validation</li>
+              <li>Database & ERP auto-entry</li>
+            </ul>
+          </article>
+
+          <!-- Timetable Automation -->
+          <article class="p-6 rounded-2xl glass shadow transition hover:scale-[1.02] hover:shadow-lg">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[#3A86FF] to-[#7B2CBF] text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3M3 11h18M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              </div>
+              <h3 class="text-lg font-semibold">Timetable Automation</h3>
+            </div>
+            <p class="text-sm text-slate-600"><strong class="text-slate-800">Real-World Opportunity:</strong> School administrators spend 15-20 hours weekly creating timetables, balancing teacher availability, room capacity, and subject requirements. Automation generates optimized schedules in minutes, eliminates conflicts, and instantly adapts when teachers or rooms change.</p>
+            <p class="text-sm text-slate-500 italic mt-2">Result: Save 60+ hours per month, reduce scheduling errors by 95%, and free administrators to focus on student support and strategic planning.</p>
+            <ul class="mt-3 text-sm text-slate-600">
+              <li>Auto-generation of timetables</li>
+              <li>Shift & roster synchronization</li>
+              <li>Notifications & calendar exports</li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- Fourth Row: Staff & HR, Power Apps & BI, Inventory Management -->
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Staff & HR Automation -->
+          <article class="p-6 rounded-2xl glass shadow transition hover:scale-[1.02] hover:shadow-lg">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[#3A86FF] to-[#7B2CBF] text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+              </div>
+              <h3 class="text-lg font-semibold">Staff & HR Automation</h3>
+            </div>
+            <p class="text-sm text-slate-600"><strong class="text-slate-800">Real-World Opportunity:</strong> HR departments manage multiple manual processes: collecting documents from new hires, creating employee IDs, setting up system accounts, tracking attendance across locations, generating performance reports, and handling contract renewals. Each process requires hours of manual coordination and data entry across different systems.</p>
+            <p class="text-sm text-slate-500 italic mt-2">Result: New employee onboarding reduced from 2 days to 2 hours, attendance automatically synced from biometric systems, performance dashboards generated automatically, and contract renewal reminders sent proactively—reducing HR workload by 70%.</p>
+            <ul class="mt-3 text-sm text-slate-600">
+              <li>Attendance & shift allocation</li>
+              <li>Document workflows & ID generation</li>
+              <li>Performance & payroll tie-in</li>
+            </ul>
+          </article>
+
+          <!-- Power Apps & Power BI -->
+          <article class="p-6 rounded-2xl glass shadow transition hover:scale-[1.02] hover:shadow-lg">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[#3A86FF] to-[#7B2CBF] text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+              </div>
+              <h3 class="text-lg font-semibold">Power Apps & Power BI</h3>
+            </div>
+            <p class="text-sm text-slate-600"><strong class="text-slate-800">Real-World Opportunity:</strong> Managers and executives need business insights but rely on IT teams to generate reports from Excel spreadsheets or complex systems. Decision-makers wait days for data, receive outdated information, or make decisions based on incomplete data—missing opportunities and reacting too slowly to issues.</p>
+            <p class="text-sm text-slate-500 italic mt-2">Result: Custom dashboards show real-time automation performance, cost savings, ROI metrics, and business KPIs—accessible on any device, updated automatically, no IT dependency. Executives make faster, data-driven decisions with instant visibility into operations.</p>
+            <ul class="mt-3 text-sm text-slate-600">
+              <li>Custom dashboards & alerts</li>
+              <li>Supabase / SQL integration</li>
+              <li>Automated report distribution</li>
+            </ul>
+          </article>
+
+          <!-- Inventory Management Automation -->
+          <article class="p-6 rounded-2xl glass shadow transition hover:scale-[1.02] hover:shadow-lg">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[#3A86FF] to-[#7B2CBF] text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+              </div>
+              <h3 class="text-lg font-semibold">Inventory Management Automation</h3>
+            </div>
+            <p class="text-sm text-slate-600"><strong class="text-slate-800">Real-World Opportunity:</strong> Retail stores, restaurants, and warehouses manually track stock levels, update inventory sheets, generate purchase orders, and reconcile physical counts with system records weekly or monthly. Staff spend 10-15 hours weekly on inventory tasks, and stockouts or overstocking occur due to delayed updates and manual errors.</p>
+            <p class="text-sm text-slate-500 italic mt-2">Result: Inventory tracked automatically, low-stock alerts sent instantly, purchase orders generated automatically, and stock reconciliation happens in real-time—eliminate stockouts, reduce overstock by 30%, and save 12+ hours weekly on inventory management.</p>
+            <ul class="mt-3 text-sm text-slate-600">
+              <li>Real-time stock tracking & alerts</li>
+              <li>Automated purchase order generation</li>
+              <li>Stock reconciliation & reporting</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why RPA, BPA & Intelligent Automation -->
+    <section id="why-automation" class="max-w-7xl mx-auto px-5 md:px-8 py-16 z-20 relative">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-poppins font-bold">Why Robotics Process Automation, Business Process Automation, Intelligent Automation & Agentic AI?</h2>
+        <p class="mt-3 text-xl text-slate-600">How Automation Transforms Your Business</p>
+        <p class="mt-4 text-slate-600 max-w-3xl mx-auto leading-relaxed">
+          From Robotics Process Automation (RPA) that mimics human actions, to Business Process Automation (BPA) that streamlines entire workflows, 
+          to Intelligent Automation that adds AI capabilities, and finally Agentic AI Automation that enables autonomous decision-making — 
+          we leverage the full spectrum of automation technologies to deliver maximum value to your business.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Reduced Manual Effort -->
+        <article class="p-6 rounded-2xl glass shadow-sm">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Reduced Manual Effort</h3>
+          <p class="text-sm text-slate-600 leading-relaxed"><strong class="font-semibold text-slate-800">Automate repetitive tasks so teams can focus on high-value work.</strong> Eliminate hours of manual data entry, copy-paste work, and routine processing—freeing employees for strategic activities that grow your business.</p>
+        </article>
+
+        <!-- Faster Processing Time -->
+        <article class="p-6 rounded-2xl glass shadow-sm">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Faster Processing Time</h3>
+          <p class="text-sm text-slate-600 leading-relaxed"><strong class="font-semibold text-slate-800">Complete tasks in minutes instead of hours or days.</strong> Automation processes transactions, documents, and orders at digital speed—24/7, without breaks, delays, or bottlenecks.</p>
+        </article>
+
+        <!-- Error Reduction -->
+        <article class="p-6 rounded-2xl glass shadow-sm">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Error Reduction</h3>
+          <p class="text-sm text-slate-600 leading-relaxed"><strong class="font-semibold text-slate-800">Eliminate costly mistakes and reduce rework.</strong> Automated processes follow rules consistently every time—no typos in data entry, no calculation errors, no missed compliance steps. Achieve near-perfect accuracy.</p>
+        </article>
+
+        <!-- Cost Savings & ROI -->
+        <article class="p-6 rounded-2xl glass shadow-sm">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Cost Savings & ROI</h3>
+          <p class="text-sm text-slate-600 leading-relaxed"><strong class="font-semibold text-slate-800">Reduce operational costs while increasing output.</strong> Most businesses see ROI within 12-18 months through lower labor costs, fewer errors, and improved efficiency—often saving 30-40% on automated processes.</p>
+        </article>
+
+        <!-- 24x7 Operations -->
+        <article class="p-6 rounded-2xl glass shadow-sm">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">24×7 Operations</h3>
+          <p class="text-sm text-slate-600 leading-relaxed"><strong class="font-semibold text-slate-800">Work never stops—automation runs 24/7.</strong> Process orders overnight, handle customer requests on weekends, and complete tasks during holidays. Deliver faster service to customers regardless of business hours.</p>
+        </article>
+
+        <!-- Scalability Without Hiring -->
+        <article class="p-6 rounded-2xl glass shadow-sm">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Scalability Without Hiring</h3>
+          <p class="text-sm text-slate-600 leading-relaxed"><strong class="font-semibold text-slate-800">Scale operations without hiring more staff.</strong> Handle 10x more transactions, peak seasons, or business growth with automation—no recruiting, training, or added payroll costs.</p>
+        </article>
+
+        <!-- Better Decision-Making -->
+        <article class="p-6 rounded-2xl glass shadow-sm">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Better Decision-Making</h3>
+          <p class="text-sm text-slate-600 leading-relaxed"><strong class="font-semibold text-slate-800">Make data-driven decisions with real-time insights.</strong> Automated analytics turn raw data into clear reports and dashboards—identify opportunities, spot issues early, and optimize operations based on facts, not guesswork.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Licensed Partners & Certifications -->
+    <section id="partners" class="bg-white/50 py-16 z-20 relative">
+      <div class="max-w-7xl mx-auto px-5 md:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-poppins font-bold mb-3">Licensed Technology Partners</h2>
+          <p class="text-slate-600 max-w-2xl mx-auto">
+            As licensed partners with leading automation platforms, we deliver enterprise-grade solutions backed by certified expertise and direct platform support.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <!-- UiPath Partner -->
+          <div class="p-8 rounded-2xl glass shadow-sm border border-slate-200 hover:shadow-md transition">
+            <div class="flex items-center justify-center mb-6 h-20">
+              <!-- UiPath Logo - Add your UiPath partner logo to ./images/uipath-logo.png -->
+              <img src="./images/uipath-logo.png" alt="UiPath Licensed Partner" class="max-h-16 object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="w-full h-16 bg-gradient-to-r from-[#F00F96] to-[#9200E7] rounded-lg flex items-center justify-center text-white font-bold text-xl" style="display:none;">
+                UiPath
+              </div>
+            </div>
+            <h3 class="text-xl font-semibold text-center mb-3">UiPath Licensed Partner</h3>
+            <p class="text-sm text-slate-600 text-center leading-relaxed">
+              Certified UiPath partner with expertise in RPA, process mining, and automation platform implementation. 
+              Direct access to latest features, updates, and enterprise support.
+            </p>
+            <div class="mt-5 text-center">
+              <span class="inline-block px-4 py-2 rounded-full bg-gradient-to-r from-[#F00F96] to-[#9200E7] text-white text-xs font-semibold shadow-sm">Licensed Partner</span>
+            </div>
+          </div>
+
+          <!-- Power Platform Partner -->
+          <div class="p-8 rounded-2xl glass shadow-sm border border-slate-200 hover:shadow-md transition">
+            <div class="flex items-center justify-center mb-6 h-20">
+              <!-- Microsoft Power Platform Logo - Add your Power Platform logo to ./images/power-platform-logo.png -->
+              <img src="./images/power-platform-logo.png" alt="Microsoft Power Platform Partner" class="max-h-16 object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="w-full h-16 bg-gradient-to-r from-[#0078D4] to-[#00BCF2] rounded-lg flex items-center justify-center text-white font-bold text-lg" style="display:none;">
+                Power Platform
+              </div>
+            </div>
+            <h3 class="text-xl font-semibold text-center mb-3">Microsoft Power Platform Partner</h3>
+            <p class="text-sm text-slate-600 text-center leading-relaxed">
+              Licensed Microsoft Power Platform partner specializing in Power Automate, Power Apps, 
+              Power BI, and integrated automation solutions across the Microsoft ecosystem.
+            </p>
+            <div class="mt-5 text-center">
+              <span class="inline-block px-4 py-2 rounded-full bg-gradient-to-r from-[#0078D4] to-[#00BCF2] text-white text-xs font-semibold shadow-sm">Licensed Partner</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Agentic AI & Intelligent Automation -->
+    <section id="agentic-ai" class="bg-white/50 py-16 z-20 relative">
+      <div class="max-w-7xl mx-auto px-5 md:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-poppins font-bold">Agentic AI & Intelligent Automation</h2>
+          <p class="mt-3 text-lg text-slate-700 font-medium max-w-2xl mx-auto">Agentic AI enables automation to think, decide, and act independently—not just follow fixed rules.</p>
+          <p class="mt-2 text-slate-600 max-w-2xl mx-auto">The next evolution of automation that learns and adapts to deliver smarter business outcomes</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 items-start">
+          <!-- Left: Agentic AI Explanation -->
+          <div>
+            <h3 class="text-2xl font-semibold mb-4">What is Agentic AI?</h3>
+            <p class="text-slate-600 mb-4 leading-relaxed">
+              Agentic AI represents the future of automation—intelligent agents that don't just follow scripts, but make autonomous decisions based on context, learn from outcomes, and adapt to changing conditions.
+            </p>
+            <div class="space-y-4">
+              <div class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded-full bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-1">Autonomous Decision-Making</h4>
+                  <p class="text-sm text-slate-600">AI agents evaluate situations, consider multiple factors, and choose the best course of action without human intervention.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded-full bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-1">Workflow Triggering</h4>
+                  <p class="text-sm text-slate-600">Agents automatically initiate workflows across systems when specific conditions are met, orchestrating complex multi-step processes.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded-full bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-1">System-to-System Communication</h4>
+                  <p class="text-sm text-slate-600">Seamlessly interact with multiple applications, APIs, and databases, bridging gaps between disconnected systems.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded-full bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-1">Learning from Data Patterns</h4>
+                  <p class="text-sm text-slate-600">Continuously improve by analyzing historical data, recognizing patterns, and refining strategies for better outcomes over time.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Comparison Table -->
+          <div>
+            <h3 class="text-2xl font-semibold mb-4">Evolution of Automation</h3>
+            <div class="space-y-4">
+              <div class="p-4 rounded-xl border border-slate-200 bg-white">
+                <div class="flex items-center gap-3 mb-2">
+                  <div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center">
+                    <span class="text-xs font-bold text-slate-600">1</span>
+                  </div>
+                  <h4 class="font-semibold">Traditional Automation</h4>
+                </div>
+                <p class="text-sm text-slate-600 pl-11">Fixed rules, repetitive tasks. Works well for standardized processes but requires constant maintenance when systems change.</p>
+              </div>
+              <div class="p-4 rounded-xl border-2 border-[var(--primary)] bg-gradient-to-br from-blue-50 to-white">
+                <div class="flex items-center gap-3 mb-2">
+                  <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] flex items-center justify-center">
+                    <span class="text-xs font-bold text-white">2</span>
+                  </div>
+                  <h4 class="font-semibold">Intelligent Automation</h4>
+                </div>
+                <p class="text-sm text-slate-600 pl-11">AI-enhanced processes with document understanding, natural language processing, and basic decision-making capabilities.</p>
+              </div>
+              <div class="p-4 rounded-xl border-2 border-[var(--teal-1)] bg-gradient-to-br from-teal-50 to-white">
+                <div class="flex items-center gap-3 mb-2">
+                  <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-[var(--teal-1)] to-[var(--teal-2)] flex items-center justify-center">
+                    <span class="text-xs font-bold text-white">3</span>
+                  </div>
+                  <h4 class="font-semibold">Agentic AI</h4>
+                </div>
+                <p class="text-sm text-slate-600 pl-11">Fully autonomous agents that make decisions, learn from experience, and adapt to new situations—the ultimate self-optimizing automation.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES (short) -->
+    <section id="services" class="max-w-7xl mx-auto px-5 md:px-8 py-14 z-20 relative">
+      <div class="text-center mb-6">
+        <h3 class="text-2xl font-poppins font-bold">Our Services</h3>
+        <p class="mt-2 text-slate-500">RPA, AI, Web & App development, and automation consultancy.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div class="p-6 rounded-2xl glass">Robotic Process Automation (UiPath / Power Automate)</div>
+        <div class="p-6 rounded-2xl glass">AI Solutions (chatbots, OCR, Document AI)</div>
+        <div class="p-6 rounded-2xl glass">Web & Mobile App Development</div>
+        <div class="p-6 rounded-2xl glass">Power Apps & Power BI Dashboards</div>
+      </div>
+    </section>
+
+    <!-- How Kagzso Helps Your Business Grow -->
+    <section id="growth" class="max-w-7xl mx-auto px-5 md:px-8 py-16 z-20 relative">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-poppins font-bold">How Kagzso Helps Your Business Grow</h2>
+        <p class="mt-3 text-slate-600 max-w-2xl mx-auto">A proven path to measurable business transformation</p>
+      </div>
+
+      <div class="space-y-6">
+        <!-- Step 1 -->
+        <div class="flex flex-col md:flex-row gap-6 items-center p-6 rounded-2xl glass shadow-sm">
+          <div class="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] flex items-center justify-center text-white font-bold text-xl">1</div>
+          <div class="flex-1">
+            <h3 class="text-xl font-semibold mb-2">Faster Operations → Higher Throughput</h3>
+            <p class="text-slate-600">Customers experience faster operations, resulting in higher throughput and quicker turnaround times. What used to take hours now happens in minutes—your team handles significantly more work with the same resources, increasing output while improving customer satisfaction.</p>
+          </div>
+          <div class="text-right">
+            <div class="text-3xl font-bold text-[var(--primary)]">+40%</div>
+            <div class="text-sm text-slate-500">Average Throughput Increase</div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="flex flex-col md:flex-row gap-6 items-center p-6 rounded-2xl glass shadow-sm">
+          <div class="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] flex items-center justify-center text-white font-bold text-xl">2</div>
+          <div class="flex-1">
+            <h3 class="text-xl font-semibold mb-2">Lower Costs → Higher Margins</h3>
+            <p class="text-slate-600">Businesses see immediate cost reduction as automation takes over labor-intensive tasks. Lower processing expenses combined with increased output directly translate to improved profit margins, strengthening your competitive position and financial health.</p>
+          </div>
+          <div class="text-right">
+            <div class="text-3xl font-bold text-[var(--primary)]">-30%</div>
+            <div class="text-sm text-slate-500">Operational Cost Reduction</div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="flex flex-col md:flex-row gap-6 items-center p-6 rounded-2xl glass shadow-sm">
+          <div class="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] flex items-center justify-center text-white font-bold text-xl">3</div>
+          <div class="flex-1">
+            <h3 class="text-xl font-semibold mb-2">Automation + AI → Competitive Advantage</h3>
+            <p class="text-slate-600">Companies gain a clear competitive edge with intelligent automation that adapts and improves over time. Clients experience faster response times, fewer errors, and superior service quality—making these advantages your market differentiators that competitors struggle to match.</p>
+          </div>
+          <div class="text-right">
+            <div class="text-3xl font-bold text-[var(--primary)]">2x</div>
+            <div class="text-sm text-slate-500">Customer Response Speed</div>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="flex flex-col md:flex-row gap-6 items-center p-6 rounded-2xl glass shadow-sm">
+          <div class="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] flex items-center justify-center text-white font-bold text-xl">4</div>
+          <div class="flex-1">
+            <h3 class="text-xl font-semibold mb-2">Data-Driven Decisions → Strategic Insights</h3>
+            <p class="text-slate-600">Decision-makers gain access to real-time analytics and AI-powered insights that reveal opportunities and risks. Teams make informed strategic choices based on comprehensive data analysis, replacing guesswork with actionable intelligence that drives better business outcomes.</p>
+          </div>
+          <div class="text-right">
+            <div class="text-3xl font-bold text-[var(--primary)]">85%</div>
+            <div class="text-sm text-slate-500">Faster Decision Making</div>
+          </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="flex flex-col md:flex-row gap-6 items-center p-6 rounded-2xl glass shadow-sm">
+          <div class="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] flex items-center justify-center text-white font-bold text-xl">5</div>
+          <div class="flex-1">
+            <h3 class="text-xl font-semibold mb-2">Future-Ready Foundation → Sustainable Growth</h3>
+            <p class="text-slate-600">Organizations build a scalable digital foundation that grows seamlessly with their business. Automation adapts to increasing volumes and new requirements effortlessly, supporting long-term expansion and business growth without proportional increases in operational costs.</p>
+          </div>
+          <div class="text-right">
+            <div class="text-3xl font-bold text-[var(--primary)]">∞</div>
+            <div class="text-sm text-slate-500">Scalability Potential</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-10 p-6 rounded-2xl bg-gradient-to-r from-[var(--primary)] to-[var(--teal-1)] text-white text-center">
+        <p class="text-lg font-semibold mb-2">Typical ROI: 200-400% within 18 months</p>
+        <p class="text-sm opacity-90">Based on average client results across industries</p>
+      </div>
+    </section>
+
+    <!-- INDUSTRIES -->
+    <section id="industries" class="bg-white/50 py-16 z-20 relative">
+      <div class="max-w-7xl mx-auto px-5 md:px-8">
+        <div class="flex items-center justify-between mb-6">
+          <h3 class="text-2xl font-poppins font-bold">Industries We Serve</h3>
+          <div class="text-sm text-slate-500">Schools, Hospitals, Restaurants, Retail, Garment, Grocery & Offices</div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Retail -->
+          <article class="p-6 rounded-xl border border-slate-200 bg-white shadow-sm hover:shadow-md transition">
+            <div class="w-10 h-10 rounded-lg bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] flex items-center justify-center mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+            </div>
+            <h4 class="font-semibold text-lg mb-2">Retail</h4>
+            <p class="text-sm text-slate-600 mb-3">Transform retail operations with intelligent automation that handles inventory, customer data, and sales processes seamlessly.</p>
+            <ul class="text-xs text-slate-500 space-y-1">
+              <li>• Inventory management & stock alerts</li>
+              <li>• POS integration & sales analytics</li>
+              <li>• Customer data processing & insights</li>
+            </ul>
+          </article>
+
+          <!-- Restaurants -->
+          <article class="p-6 rounded-xl border border-slate-200 bg-white shadow-sm hover:shadow-md transition">
+            <div class="w-10 h-10 rounded-lg bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] flex items-center justify-center mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
+            </div>
+            <h4 class="font-semibold text-lg mb-2">Restaurants</h4>
+            <p class="text-sm text-slate-600 mb-3">Streamline restaurant operations from order management to kitchen coordination and staff scheduling.</p>
+            <ul class="text-xs text-slate-500 space-y-1">
+              <li>• Order management & KOT automation</li>
+              <li>• Kitchen workflow optimization</li>
+              <li>• Staff scheduling & shift management</li>
+            </ul>
+          </article>
+
+          <!-- Hospitals -->
+          <article class="p-6 rounded-xl border border-slate-200 bg-white shadow-sm hover:shadow-md transition">
+            <div class="w-10 h-10 rounded-lg bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] flex items-center justify-center mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+            </div>
+            <h4 class="font-semibold text-lg mb-2">Hospitals & Clinics</h4>
+            <p class="text-sm text-slate-600 mb-3">Improve patient care efficiency with automation that handles administrative tasks and data management.</p>
+            <ul class="text-xs text-slate-500 space-y-1">
+              <li>• Patient data processing & records</li>
+              <li>• Appointment scheduling automation</li>
+              <li>• Inventory tracking & management</li>
+            </ul>
+          </article>
+
+          <!-- Education -->
+          <article class="p-6 rounded-xl border border-slate-200 bg-white shadow-sm hover:shadow-md transition">
+            <div class="w-10 h-10 rounded-lg bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] flex items-center justify-center mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+            </div>
+            <h4 class="font-semibold text-lg mb-2">Education</h4>
+            <p class="text-sm text-slate-600 mb-3">Automate administrative tasks in schools and colleges to focus on student success and learning outcomes.</p>
+            <ul class="text-xs text-slate-500 space-y-1">
+              <li>• Timetable generation & optimization</li>
+              <li>• Attendance tracking & reporting</li>
+              <li>• Fee management & billing automation</li>
+            </ul>
+          </article>
+
+          <!-- Offices -->
+          <article class="p-6 rounded-xl border border-slate-200 bg-white shadow-sm hover:shadow-md transition">
+            <div class="w-10 h-10 rounded-lg bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] flex items-center justify-center mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+            </div>
+            <h4 class="font-semibold text-lg mb-2">Offices & Corporates</h4>
+            <p class="text-sm text-slate-600 mb-3">Eliminate manual paperwork and streamline corporate processes for better productivity and compliance.</p>
+            <ul class="text-xs text-slate-500 space-y-1">
+              <li>• Document processing & workflows</li>
+              <li>• HR automation & onboarding</li>
+              <li>• Workflow management & approvals</li>
+            </ul>
+          </article>
+
+          <!-- Grocery -->
+          <article class="p-6 rounded-xl border border-slate-200 bg-white shadow-sm hover:shadow-md transition">
+            <div class="w-10 h-10 rounded-lg bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] flex items-center justify-center mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+            </div>
+            <h4 class="font-semibold text-lg mb-2">Grocery & Supermarkets</h4>
+            <p class="text-sm text-slate-600 mb-3">Optimize grocery operations from inventory to checkout with intelligent automation systems.</p>
+            <ul class="text-xs text-slate-500 space-y-1">
+              <li>• Inventory management & reordering</li>
+              <li>• Billing & checkout automation</li>
+              <li>• Supplier coordination & ordering</li>
+            </ul>
+          </article>
+
+          <!-- Garments -->
+          <article class="p-6 rounded-xl border border-slate-200 bg-white shadow-sm hover:shadow-md transition">
+            <div class="w-10 h-10 rounded-lg bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] flex items-center justify-center mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/></svg>
+            </div>
+            <h4 class="font-semibold text-lg mb-2">Garment Shops</h4>
+            <p class="text-sm text-slate-600 mb-3">Manage fashion retail efficiently with automation for stock, orders, and customer management.</p>
+            <ul class="text-xs text-slate-500 space-y-1">
+              <li>• Stock management & tracking</li>
+              <li>• Order processing & fulfillment</li>
+              <li>• Supplier & vendor automation</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section id="why" class="bg-white/50 py-16 z-20 relative">
+      <div class="max-w-7xl mx-auto px-5 md:px-8">
+        <h2 class="text-3xl font-poppins font-bold text-center mb-12">Why Choose Kagzso</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Real-World Experience -->
+          <article class="p-6 rounded-2xl glass shadow-sm">
+            <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+            </div>
+            <h3 class="text-lg font-semibold mb-2">Real-World Automation Experience</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">Proven track record across diverse industries. Our team brings hands-on experience implementing automation solutions that deliver measurable business results and ROI.</p>
+          </article>
+
+          <!-- ROI-Focused -->
+          <article class="p-6 rounded-2xl glass shadow-sm">
+            <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+            </div>
+            <h3 class="text-lg font-semibold mb-2">ROI-Focused Approach</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">Business outcomes come first. We prioritize automation initiatives based on impact potential and measurable returns, ensuring every project delivers tangible value to your bottom line.</p>
+          </article>
+
+          <!-- Secure Architecture -->
+          <article class="p-6 rounded-2xl glass shadow-sm">
+            <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </div>
+            <h3 class="text-lg font-semibold mb-2">Secure Enterprise Architecture</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">Enterprise-grade security built into every solution. We implement robust access controls, data encryption, and compliance standards to protect your sensitive business information.</p>
+          </article>
+
+          <!-- Scalable Solutions -->
+          <article class="p-6 rounded-2xl glass shadow-sm">
+            <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/></svg>
+            </div>
+            <h3 class="text-lg font-semibold mb-2">Scalable Solutions</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">Architecture designed for growth. Our automation solutions scale effortlessly from small deployments to enterprise-wide implementations, adapting to your evolving business needs.</p>
+          </article>
+
+          <!-- Vendor-Agnostic -->
+          <article class="p-6 rounded-2xl glass shadow-sm">
+            <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            </div>
+            <h3 class="text-lg font-semibold mb-2">Vendor-Agnostic Expertise</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">Technology-agnostic approach ensures the best fit. We work with UiPath, Power Automate, custom AI solutions, and other platforms, selecting optimal tools for your specific requirements.</p>
+          </article>
+
+          <!-- Long-Term Partnership -->
+          <article class="p-6 rounded-2xl glass shadow-sm">
+            <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+            </div>
+            <h3 class="text-lg font-semibold mb-2">Long-Term Partnership Mindset</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">Beyond implementation, we're your strategic automation partner. Ongoing support, continuous optimization, and expansion planning ensure your automation investments deliver lasting value.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- START YOUR AUTOMATION JOURNEY -->
+    <section id="contact" class="max-w-4xl mx-auto px-5 md:px-8 py-16 z-20 relative">
+      <div class="rounded-2xl p-8 md:p-12 bg-gradient-to-br from-white to-white/95 shadow-xl border border-white/30">
+        <div class="text-center mb-8">
+          <h2 class="text-3xl md:text-4xl font-poppins font-bold mb-4">Start Your Automation Journey Today</h2>
+          <p class="text-lg text-slate-700 max-w-2xl mx-auto font-medium">
+            Get your <span class="font-bold text-[var(--primary)]">Free Automation Assessment</span> — no obligation, no pressure.
+          </p>
+          <p class="text-base text-slate-600 max-w-2xl mx-auto mt-3">
+            Discover exactly how intelligent automation can reduce your operational costs, speed up processes, and scale your business. Our experts will analyze your workflows and show you real ROI potential tailored to your operations.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-4 mb-8 text-center">
+          <div class="p-4 rounded-lg bg-slate-50">
+            <div class="text-sm font-semibold text-slate-700 mb-1">100% Privacy Protected</div>
+            <div class="text-xs text-slate-500">Your data is secure</div>
+          </div>
+          <div class="p-4 rounded-lg bg-slate-50">
+            <div class="text-sm font-semibold text-slate-700 mb-1">24-Hour Response</div>
+            <div class="text-xs text-slate-500">Quick turnaround time</div>
+          </div>
+          <div class="p-4 rounded-lg bg-slate-50">
+            <div class="text-sm font-semibold text-slate-700 mb-1">No Obligation</div>
+            <div class="text-xs text-slate-500">Free assessment, no pressure</div>
+          </div>
+        </div>
+
+        <form id="contactForm" class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4" onsubmit="handleContactSubmit(event)">
+          <input id="name" required placeholder="Full name *" class="p-3 rounded-lg border border-slate-200 focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)]/20 transition" />
+          <input id="email" required type="email" placeholder="Email address *" class="p-3 rounded-lg border border-slate-200 focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)]/20 transition" />
+          <input id="phone" type="tel" placeholder="Phone number" class="p-3 rounded-lg border border-slate-200 focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)]/20 transition" />
+          <select id="businessType" class="p-3 rounded-lg border border-slate-200 focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)]/20 transition">
+            <option value="">Business Type</option>
+            <option>Retail</option>
+            <option>Restaurant</option>
+            <option>Hospital/Healthcare</option>
+            <option>Education</option>
+            <option>Office/Corporate</option>
+            <option>Grocery/Supermarket</option>
+            <option>Garment/Fashion</option>
+            <option>Other</option>
+          </select>
+          <textarea id="challenge" required placeholder="Describe your automation challenge or goal *" rows="4" class="md:col-span-2 p-3 rounded-lg border border-slate-200 focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)]/20 transition"></textarea>
+
+          <div class="md:col-span-2">
+            <button type="submit" class="w-full px-6 py-4 rounded-lg bg-gradient-to-r from-[var(--primary)] to-[var(--teal-1)] text-white font-semibold text-lg shadow-lg btn-glow">
+              Get Free Automation Assessment
+            </button>
+          </div>
+        </form>
+
+        <div class="mt-6 text-center text-sm text-slate-600">
+          <p class="font-medium mb-1">No obligation • Secure • Quick response from automation experts</p>
+          <p class="text-xs text-slate-500">We'll review your business processes and provide actionable recommendations within 24 hours</p>
+        </div>
+
+        <div id="contactMessage" role="status" class="mt-6 p-4 rounded-lg bg-green-50 text-green-700 text-center hidden">
+          <strong>Thank you!</strong> We'll contact you within 24 hours to schedule your free automation assessment.
+        </div>
+
+        <div class="mt-8 text-center text-sm text-slate-500">
+          <p>Questions? Reach us at <a href="mailto:kagzso.in@gmail.com" class="text-[var(--primary)] hover:underline">kagzso.in@gmail.com</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#0A0A0A] text-white py-10 z-20 relative">
+      <div class="max-w-7xl mx-auto px-5 md:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div class="flex items-center gap-3">
+          <!-- Company Logo - Update path to your logo file -->
+          <img src="./images/kagzso-hexagon-logo.png" alt="Kagzso Logo" class="w-10 h-10 object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+          <div class="logo-placeholder w-10 h-10" style="display:none;"></div>
+          <div>
+            <!-- TEMPLATE: Company name - update if needed -->
+            <div class="company-name font-bold text-white">
+              <span class="letter letter-1">K</span>
+              <span class="letter letter-2">A</span>
+              <span class="letter letter-3">G</span>
+              <span class="letter letter-4">Z</span>
+              <span class="letter letter-5">S</span>
+              <span class="letter letter-6">O</span>
+            </div>
+            <div class="text-sm text-slate-400">AI Automation for a Smarter Tomorrow</div>
+          </div>
+        </div>
+
+        <!-- Company name in copyright -->
+        <div class="text-sm text-slate-400">© <span id="year"></span> <span class="company-name text-sm">
+          <span class="letter letter-1">K</span><span class="letter letter-2">A</span><span class="letter letter-3">G</span><span class="letter letter-4">Z</span><span class="letter letter-5">S</span><span class="letter letter-6">O</span>
+        </span> Automations — All rights reserved.</div>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- SCRIPTS -->
+  <script>
+    // Set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Contact form handler
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const challenge = document.getElementById('challenge').value.trim();
+      if (!name || !email || !challenge) { 
+        alert('Please complete all required fields.'); 
+        return; 
+      }
+      // TODO: POST to your API or Zapier endpoint
+      document.getElementById('contactMessage').classList.remove('hidden');
+      document.getElementById('contactForm').reset();
+      // Scroll to message
+      document.getElementById('contactMessage').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      setTimeout(()=>document.getElementById('contactMessage').classList.add('hidden'), 8000);
+    }
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Parallax effect for circuit SVG
+    (function() {
+      const circuit = document.querySelector('.circuit-svg');
+      if (!circuit) return;
+      window.addEventListener('scroll', () => {
+        const scrolled = window.scrollY;
+        circuit.style.transform = `translate(-10% , ${-scrolled * 0.02}px) scale(1)`;
+      }, { passive: true });
+    })();
+
+    // Pause / play Lottie players when off-screen
+    (function() {
+      const players = document.querySelectorAll('lottie-player');
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          const player = entry.target;
+          if (entry.isIntersecting) player.play();
+          else player.pause();
+        });
+      }, { threshold: 0.25 });
+      players.forEach(p => io.observe(p));
+    })();
+
+    // Subtle fade-in on scroll for sections below hero
+    (function() {
+      const sections = document.querySelectorAll('section:not(:first-of-type)');
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in-visible');
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+      
+      sections.forEach(section => {
+        section.classList.add('fade-in-section');
+        observer.observe(section);
+      });
+    })();
+  </script>
+
+  <noscript>
+    <style>.glass{background:#fff;backdrop-filter:none}</style>
+  </noscript>
+</body>
+</html>
