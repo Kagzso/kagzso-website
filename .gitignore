@@ -1,0 +1,7 @@
+node_modules/
+Automation simulator/
+automation-simulator/Automation simulator/
+dist/
+.env
+.DS_Store
+.gitignore.txt
