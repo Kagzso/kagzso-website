@@ -1,0 +1,19 @@
+# Netlify configuration
+[build]
+  publish = "."
+  
+[[redirects]]
+  from = "/demo"
+  to = "/automation-simulator/Automation simulator/dist/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/demo/*"
+  to = "/automation-simulator/Automation simulator/dist/:splat"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
