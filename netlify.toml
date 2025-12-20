@@ -4,12 +4,12 @@
   
 [[redirects]]
   from = "/demo"
-  to = "/automation-simulator/Automation simulator/dist/index.html"
+  to = "/demo/index.html"
   status = 200
 
 [[redirects]]
   from = "/demo/*"
-  to = "/automation-simulator/Automation simulator/dist/:splat"
+  to = "/demo/:splat"
   status = 200
 
 [[headers]]
