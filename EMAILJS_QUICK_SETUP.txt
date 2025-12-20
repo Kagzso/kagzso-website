@@ -1,0 +1,99 @@
+# Quick Fix: EmailJS Setup (3-Minute Version)
+
+**Don't want to read the full guide? Here's the fastest path:**
+
+## Step 1: Get Your Keys (2 minutes)
+1. Go to https://www.emailjs.com/
+2. Sign up free (use your Gmail: kagzso.in@gmail.com)
+3. Verify email
+4. Go to **Account** → **API Keys**
+5. Copy your **Public Key** (e.g., `abc123xyz456...`)
+
+## Step 2: Connect Email Service (1 minute)
+1. Still in EmailJS dashboard
+2. Go to **Email Services**
+3. Click **Add Service**
+4. Choose **Gmail**
+5. Click **Connect with Gmail** and authorize
+6. Copy the **Service ID** (e.g., `gmail_service`)
+
+## Step 3: Create Template (3 minutes)
+1. Go to **Email Templates**
+2. Click **Create New Template**
+3. Fill in:
+   - **Name:** `contact_form`
+   - **Service:** `gmail_service` (from step 2)
+   - **To Email:** `{{to_email}}`
+   - **From:** `{{from_email}}`
+4. Paste this in Content:
+```
+Name: {{from_name}}
+Email: {{from_email}}
+Phone: {{phone}}
+Business: {{business_type}}
+
+Message:
+{{message}}
+```
+5. Click **Save**
+6. Copy the **Template ID** (should be `contact_form`)
+
+## Step 4: Update Your Code (30 seconds)
+
+Open `index.html` and find these two lines (around line 1224):
+
+**Line 1) Find this:**
+```javascript
+emailjs.init('YOUR_EMAILJS_PUBLIC_KEY');
+```
+
+**Replace with:**
+```javascript
+emailjs.init('paste-your-public-key-here');
+```
+
+**Line 2) Find this:**
+```javascript
+emailjs.send('SERVICE_ID', 'TEMPLATE_ID', {
+```
+
+**Replace with:**
+```javascript
+emailjs.send('gmail_service', 'contact_form', {
+```
+
+## Step 5: Test (1 minute)
+1. Refresh your website
+2. Fill in the form
+3. Click "Get Free Automation Assessment"
+4. Check your email for the submission
+
+Done! ✅
+
+---
+
+## Exact Values to Use
+
+Copy-paste these (they're the standard EmailJS setup):
+
+```javascript
+// Line 1225 - Replace YOUR_EMAILJS_PUBLIC_KEY with this:
+emailjs.init('YOUR_PUBLIC_KEY_FROM_STEP_1');
+
+// Line 1247 - Replace SERVICE_ID and TEMPLATE_ID:
+emailjs.send('gmail_service', 'contact_form', {
+```
+
+---
+
+## Where to Get These Values
+
+| Value | How to Get | Location |
+|-------|-----------|----------|
+| Public Key | EmailJS Dashboard → Account → API Keys | Paste at line 1225 |
+| Service ID | EmailJS Dashboard → Email Services → Gmail service | Use `gmail_service` |
+| Template ID | EmailJS Dashboard → Email Templates → contact_form | Use `contact_form` |
+
+---
+
+**That's it! Your form will now send emails.** 📧
