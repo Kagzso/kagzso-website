@@ -135,6 +135,64 @@
       }
     }
 
+    /* Card content animation styles */
+    .card-content {
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      margin-top: 0;
+    }
+    
+    .card-content:not(.hidden) {
+      max-height: none;
+      opacity: 1;
+      margin-top: 12px;
+    }
+
+    /* Ensure chevron icons are perfectly round and same size */
+    .chevron-icon,
+    .chevron-mobile {
+      width: 2rem !important;
+      height: 2rem !important;
+      min-width: 2rem !important;
+      min-height: 2rem !important;
+      flex-shrink: 0 !important;
+      aspect-ratio: 1 / 1;
+    }
+
+    /* Mobile-only collapsible cards */
+    @media (max-width: 768px) {
+      .mobile-collapsible .card-content-mobile {
+        overflow: hidden;
+        max-height: 0;
+        opacity: 0;
+        margin-top: 0;
+      }
+      
+      .mobile-collapsible .card-content-mobile:not(.hidden) {
+        max-height: none;
+        opacity: 1;
+        margin-top: 12px;
+      }
+      
+      .mobile-collapsible .chevron-mobile {
+        display: flex !important;
+      }
+    }
+    
+    /* Hide chevron on desktop for mobile-only sections */
+    @media (min-width: 769px) {
+      .mobile-collapsible .chevron-mobile {
+        display: none !important;
+      }
+      
+      .mobile-collapsible .card-content-mobile {
+        max-height: none !important;
+        opacity: 1 !important;
+        margin-top: 0 !important;
+      }
+    }
+
     /* responsive tweaks */
     @media (max-width:640px) {
       .hero-head { font-size: 1.5rem; line-height: 1.12; }
@@ -153,7 +211,7 @@
     .compact-spacing [class*="md:py-14"] { padding-block: 1.75rem !important; }
     .compact-spacing [class*="py-12"],
     .compact-spacing [class*="md:py-12"] { padding-block: 1.5rem !important; }
-    .compact-spacing [class*="mb-12"] { margin-bottom: 1.25rem !important; }
+    .compact-spacing [class*="mb-6 md:mb-12"] { margin-bottom: 1.25rem !important; }
     .compact-spacing [class*="mb-10"] { margin-bottom: 1rem !important; }
     .compact-spacing [class*="mt-8"] { margin-top: 1.25rem !important; }
     .compact-spacing [class*="mt-6"] { margin-top: 1rem !important; }
@@ -303,7 +361,7 @@
             <span class="text-xs font-semibold text-[var(--primary)]">TRUSTED BY GROWING BUSINESSES</span>
           </div>
 
-          <h1 class="hero-head font-poppins font-extrabold text-2xl md:text-4xl leading-tight\">
+          <h1 class="hero-head font-poppins font-extrabold text-xl md:text-4xl leading-tight\">
             AI-Driven Automation<br>That Scales Your Business
           </h1>
 
@@ -317,8 +375,8 @@
           </p>
 
           <div class="mt-4 flex flex-col sm:flex-row gap-3">
-            <a href="#contact" class="inline-flex items-center gap-3 px-5 py-3 rounded-lg bg-[var(--primary)] text-white font-semibold shadow-lg btn-glow">Get a Free Automation Assessment</a>
-            <a href="/demo" target="_blank" class="inline-flex items-center gap-3 px-5 py-3 rounded-lg border border-slate-200">Book a Demo</a>
+            <a href="#contact" class="inline-flex items-center justify-center gap-3 px-5 py-3 rounded-lg bg-gradient-to-r from-[var(--primary)] to-[var(--teal-1)] text-white font-semibold shadow-lg btn-glow">Get a Free Automation Assessment</a>
+            <a href="/demo" target="_blank" class="inline-flex items-center justify-center gap-3 px-5 py-3 rounded-lg bg-gradient-to-r from-[#3A86FF] to-[#7B2CBF] text-white font-semibold shadow-lg">Book a Demo</a>
           </div>
 
         </div>
@@ -344,414 +402,648 @@
     </section>
 
     <!-- How We Support Your Business -->
-    <section id="support" class="max-w-7xl mx-auto px-4 md:px-8 py-6 md:py-8 z-20 relative">
-      <div class="text-center mb-3">
-        <h2 class="text-2xl md:text-3xl font-poppins font-bold">How We Support Your Business</h2>
+    <section id="support" class="max-w-7xl mx-auto px-4 md:px-8 py-3 md:py-8 z-20 relative mobile-collapsible">
+      <div class="text-center mb-2 md:mb-8">
+        <h2 class="text-xl md:text-3xl font-poppins font-bold">How We Support Your Business</h2>
         <p class="mt-1 text-sm md:text-base text-slate-600 max-w-2xl mx-auto">Comprehensive automation services from strategy to implementation and beyond</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
         <!-- Automation Consulting -->
         <article class="p-6 rounded-2xl glass shadow-sm transition-all hover:shadow-lg hover:-translate-y-1">
-          <div class="flex items-center gap-3 mb-3">
-            <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
+          <div class="flex items-center justify-between gap-3 mb-3 md:cursor-default cursor-pointer" onclick="toggleMobileCard(this)">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
+              </div>
+              <h3 class="text-sm md:text-lg font-semibold">Automation Consulting & Feasibility Analysis</h3>
             </div>
-            <h3 class="text-lg font-semibold">Automation Consulting & Feasibility Analysis</h3>
+            <div class="chevron-mobile w-8 h-8 rounded-full bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg" style="display: none;">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </div>
           </div>
-          <p class="text-sm text-slate-600 leading-relaxed">Stop guessing which processes to automate. We analyze your operations, identify the highest-ROI opportunities, and create a clear roadmap. Result: You invest in automation that delivers measurable cost savings and efficiency gains from day one.</p>
+          <div class="card-content-mobile hidden md:!block">
+            <p class="text-sm text-slate-600 leading-relaxed">Stop guessing which processes to automate. We analyze your operations, identify the highest-ROI opportunities, and create a clear roadmap. Result: You invest in automation that delivers measurable cost savings and efficiency gains from day one.</p>
+          </div>
         </article>
 
         <!-- RPA BPA Implementation -->
         <article class="p-6 rounded-2xl glass shadow-sm transition-all hover:shadow-lg hover:-translate-y-1">
-          <div class="flex items-center gap-3 mb-3">
-            <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          <div class="flex items-center justify-between gap-3 mb-3 md:cursor-default cursor-pointer" onclick="toggleMobileCard(this)">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              </div>
+              <h3 class="text-sm md:text-lg font-semibold">End-to-End RPA & BPA Implementation</h3>
             </div>
-            <h3 class="text-lg font-semibold">End-to-End RPA & BPA Implementation</h3>
+            <div class="chevron-mobile w-8 h-8 rounded-full bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg" style="display: none;">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </div>
           </div>
-          <p class="text-sm text-slate-600 leading-relaxed">No internal IT team? No problem. We handle the entire automation project—from planning to deployment. Result: Your team experiences faster processing, fewer errors, and reduced manual workload without the complexity of managing it internally.</p>
+          <div class="card-content-mobile hidden md:!block">
+            <p class="text-sm text-slate-600 leading-relaxed">No internal IT team? No problem. We handle the entire automation project—from planning to deployment. Result: Your team experiences faster processing, fewer errors, and reduced manual workload without the complexity of managing it internally.</p>
+          </div>
         </article>
 
         <!-- Document Processing -->
         <article class="p-6 rounded-2xl glass shadow-sm transition-all hover:shadow-lg hover:-translate-y-1">
-          <div class="flex items-center gap-3 mb-3">
-            <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          <div class="flex items-center justify-between gap-3 mb-3 md:cursor-default cursor-pointer" onclick="toggleMobileCard(this)">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              </div>
+              <h3 class="text-sm md:text-lg font-semibold">Intelligent Document Processing</h3>
             </div>
-            <h3 class="text-lg font-semibold">Intelligent Document Processing</h3>
+            <div class="chevron-mobile w-8 h-8 rounded-full bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg" style="display: none;">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </div>
           </div>
-          <p class="text-sm text-slate-600 leading-relaxed">Eliminate hours of manual data entry. Our AI-powered system reads invoices, forms, and documents automatically, extracts the right information, and enters it into your systems. Result: Process documents 10x faster with 99%+ accuracy, freeing staff for value-added work.</p>
+          <div class="card-content-mobile hidden md:!block">
+            <p class="text-sm text-slate-600 leading-relaxed">Eliminate hours of manual data entry. Our AI-powered system reads invoices, forms, and documents automatically, extracts the right information, and enters it into your systems. Result: Process documents 10x faster with 99%+ accuracy, freeing staff for value-added work.</p>
+          </div>
         </article>
 
         <!-- AI Chatbots & Agents -->
         <article class="p-6 rounded-2xl glass shadow-sm transition-all hover:shadow-lg hover:-translate-y-1">
-          <div class="flex items-center gap-3 mb-3">
-            <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+          <div class="flex items-center justify-between gap-3 mb-3 md:cursor-default cursor-pointer" onclick="toggleMobileCard(this)">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+              </div>
+              <h3 class="text-sm md:text-lg font-semibold">AI Chatbots & AI Agents</h3>
             </div>
-            <h3 class="text-lg font-semibold">AI Chatbots & AI Agents</h3>
+            <div class="chevron-mobile w-8 h-8 rounded-full bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg" style="display: none;">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </div>
           </div>
-          <p class="text-sm text-slate-600 leading-relaxed">Never miss a customer inquiry, even after hours. AI chatbots answer questions instantly, while intelligent agents handle routine decisions automatically. Result: Better customer experience, reduced response time, and lower support costs—available 24/7 without extra staffing.</p>
+          <div class="card-content-mobile hidden md:!block">
+            <p class="text-sm text-slate-600 leading-relaxed">Never miss a customer inquiry, even after hours. AI chatbots answer questions instantly, while intelligent agents handle routine decisions automatically. Result: Better customer experience, reduced response time, and lower support costs—available 24/7 without extra staffing.</p>
+          </div>
         </article>
 
         <!-- Workflow Orchestration -->
         <article class="p-6 rounded-2xl glass shadow-sm transition-all hover:shadow-lg hover:-translate-y-1">
-          <div class="flex items-center gap-3 mb-3">
-            <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+          <div class="flex items-center justify-between gap-3 mb-3 md:cursor-default cursor-pointer" onclick="toggleMobileCard(this)">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+              </div>
+              <h3 class="text-sm md:text-lg font-semibold">Workflow Orchestration</h3>
             </div>
-            <h3 class="text-lg font-semibold">Workflow Orchestration</h3>
+            <div class="chevron-mobile w-8 h-8 rounded-full bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg" style="display: none;">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </div>
           </div>
-          <p class="text-sm text-slate-600 leading-relaxed">Your systems don't talk to each other? We connect them. Automate entire processes that span multiple apps—orders flow from website to inventory to shipping without manual steps. Result: Faster order-to-delivery cycles, fewer bottlenecks, and seamless operations across all your tools.</p>
+          <div class="card-content-mobile hidden md:!block">
+            <p class="text-sm text-slate-600 leading-relaxed">Your systems don't talk to each other? We connect them. Automate entire processes that span multiple apps—orders flow from website to inventory to shipping without manual steps. Result: Faster order-to-delivery cycles, fewer bottlenecks, and seamless operations across all your tools.</p>
+          </div>
         </article>
 
         <!-- Dashboarding & Analytics -->
         <article class="p-6 rounded-2xl glass shadow-sm transition-all hover:shadow-lg hover:-translate-y-1">
-          <div class="flex items-center gap-3 mb-3">
-            <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+          <div class="flex items-center justify-between gap-3 mb-3 md:cursor-default cursor-pointer" onclick="toggleMobileCard(this)">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+              </div>
+              <h3 class="text-sm md:text-lg font-semibold">Dashboarding & Analytics</h3>
             </div>
-            <h3 class="text-lg font-semibold">Dashboarding & Analytics</h3>
+            <div class="chevron-mobile w-8 h-8 rounded-full bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg" style="display: none;">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </div>
           </div>
-          <p class="text-sm text-slate-600 leading-relaxed">Make data-driven decisions without spreadsheets. Custom dashboards show real-time performance, cost savings, and ROI from your automation. Result: See exactly how automation is improving your business with clear metrics and insights—no data science degree required.</p>
+          <div class="card-content-mobile hidden md:!block">
+            <p class="text-sm text-slate-600 leading-relaxed">Make data-driven decisions without spreadsheets. Custom dashboards show real-time performance, cost savings, and ROI from your automation. Result: See exactly how automation is improving your business with clear metrics and insights—no data science degree required.</p>
+          </div>
         </article>
 
         <!-- Post-Deployment Support -->
         <article class="p-6 rounded-2xl glass shadow-sm transition-all hover:shadow-lg hover:-translate-y-1">
-          <div class="flex items-center gap-3 mb-3">
-            <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+          <div class="flex items-center justify-between gap-3 mb-3 md:cursor-default cursor-pointer" onclick="toggleMobileCard(this)">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+              </div>
+              <h3 class="text-sm md:text-lg font-semibold">Post-Deployment Support & Optimization</h3>
             </div>
-            <h3 class="text-lg font-semibold">Post-Deployment Support & Optimization</h3>
+            <div class="chevron-mobile w-8 h-8 rounded-full bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg" style="display: none;">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </div>
           </div>
-          <p class="text-sm text-slate-600 leading-relaxed">Your automation shouldn't break when systems update. We maintain everything, fix issues quickly, and continuously improve efficiency. Result: Reliable automation that keeps working as your business grows, with ongoing performance improvements and no downtime headaches.</p>
+          <div class="card-content-mobile hidden md:!block">
+            <p class="text-sm text-slate-600 leading-relaxed">Your automation shouldn't break when systems update. We maintain everything, fix issues quickly, and continuously improve efficiency. Result: Reliable automation that keeps working as your business grows, with ongoing performance improvements and no downtime headaches.</p>
+          </div>
         </article>
 
         <!-- Scalability Planning -->
         <article class="p-6 rounded-2xl glass shadow-sm transition-all hover:shadow-lg hover:-translate-y-1">
-          <div class="flex items-center gap-3 mb-3">
-            <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+          <div class="flex items-center justify-between gap-3 mb-3 md:cursor-default cursor-pointer" onclick="toggleMobileCard(this)">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+              </div>
+              <h3 class="text-sm md:text-lg font-semibold">Scalability & Growth Planning</h3>
             </div>
-            <h3 class="text-lg font-semibold">Scalability & Growth Planning</h3>
+            <div class="chevron-mobile w-8 h-8 rounded-full bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg" style="display: none;">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </div>
           </div>
-          <p class="text-sm text-slate-600 leading-relaxed">Your automation shouldn't slow down as you grow. We design systems that handle 10x more volume without major changes. Result: Scale operations efficiently without proportional cost increases—automation grows with your business, not against it.</p>
+          <div class="card-content-mobile hidden md:!block">
+            <p class="text-sm text-slate-600 leading-relaxed">Your automation shouldn't slow down as you grow. We design systems that handle 10x more volume without major changes. Result: Scale operations efficiently without proportional cost increases—automation grows with your business, not against it.</p>
+          </div>
         </article>
       </div>
     </section>
 
     <!-- Automation Solutions -->
-    <section id="automation" class="bg-slate-50 pt-32 pb-10 md:py-10 z-20 relative" style="opacity: 1 !important; transform: none !important;">
+    <section id="automation" class="bg-slate-50 pt-32 pb-10 md:py-6 md:py-10 z-20 relative" style="opacity: 1 !important; transform: none !important;">
       <div class="max-w-7xl mx-auto px-5 md:px-8">
-        <div class="text-center mb-8">
-          <h2 class="text-3xl font-poppins font-bold">Automation Solutions</h2>
+        <div class="text-center mb-2 md:mb-8">
+          <h2 class="text-xl md:text-3xl font-poppins font-bold">Automation Solutions</h2>
           <p class="mt-2 text-slate-500">Tailored automation systems to remove manual work and increase accuracy.</p>
         </div>
 
         <!-- First Row: Web Portal, Email & Communication, Customer Service -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6">
           <!-- Web Portal Automation -->
           <article class="p-6 rounded-2xl glass shadow transition hover:scale-[1.02] hover:shadow-lg">
-            <div class="flex items-center gap-3 mb-3">
-              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[#3A86FF] to-[#7B2CBF] text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+            <div class="flex items-center justify-between gap-3 mb-3 cursor-pointer" onclick="toggleCard(this)">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[#3A86FF] to-[#7B2CBF] text-white">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+                </div>
+                <h3 class="text-sm md:text-lg font-semibold">Web Portal Automation</h3>
               </div>
-              <h3 class="text-lg font-semibold">Web Portal Automation</h3>
+              <div class="chevron-icon w-8 h-8 rounded-full bg-gradient-to-tr from-[#3A86FF] to-[#7B2CBF] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </div>
             </div>
-            <p class="text-sm text-slate-600">Automate logins, form submissions, and data entries across government, vendor, and attendance portals. Eliminate manual data entry, avoid penalties, and ensure 100% compliance.</p>
-            <p class="text-sm text-slate-500 italic mt-2"><strong>Benefit:</strong> Save 10-15 hours/week • Zero missed deadlines • 100% accuracy</p>
-            <ul class="mt-3 text-sm text-slate-600">
-              <li>Form submission automation</li>
-              <li>Data extraction & reporting</li>
-              <li>Scheduled tasks & alerts</li>
-            </ul>
+            <div class="card-content hidden">
+              <p class="text-sm text-slate-600">Automate logins, form submissions, and data entries across government, vendor, and attendance portals. Eliminate manual data entry, avoid penalties, and ensure 100% compliance.</p>
+              <p class="text-sm text-slate-500 italic mt-2"><strong>Benefit:</strong> Save 10-15 hours/week • Zero missed deadlines • 100% accuracy</p>
+              <ul class="mt-3 text-sm text-slate-600">
+                <li>Form submission automation</li>
+                <li>Data extraction & reporting</li>
+                <li>Scheduled tasks & alerts</li>
+              </ul>
+            </div>
           </article>
 
           <!-- Email & Communication Automation -->
           <article class="p-6 rounded-2xl glass shadow transition hover:scale-[1.02] hover:shadow-lg">
-            <div class="flex items-center gap-3 mb-3">
-              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[#3A86FF] to-[#7B2CBF] text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            <div class="flex items-center justify-between gap-3 mb-3 cursor-pointer" onclick="toggleCard(this)">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[#3A86FF] to-[#7B2CBF] text-white">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                </div>
+                <h3 class="text-sm md:text-lg font-semibold">Email & Communication Automation</h3>
               </div>
-              <h3 class="text-lg font-semibold">Email & Communication Automation</h3>
+              <div class="chevron-icon w-8 h-8 rounded-full bg-gradient-to-tr from-[#3A86FF] to-[#7B2CBF] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </div>
             </div>
-            <p class="text-sm text-slate-600">Send personalized emails and WhatsApp messages automatically—appointment reminders, order confirmations, payment receipts, customer support, and reports. Available 24/7 without staff intervention.</p>
-            <p class="text-sm text-slate-500 italic mt-2"><strong>Benefit:</strong> Reduce communication workload by 75% • Instant responses • Consistent messaging</p>
-            <ul class="mt-3 text-sm text-slate-600">
-              <li>Automated email & WhatsApp follow-ups & reminders</li>
-              <li>WhatsApp bot for customer support & order updates</li>
-              <li>Email workflows & WhatsApp message scheduling</li>
-              <li>Report distribution & multi-channel notifications</li>
-            </ul>
+            <div class="card-content hidden">
+              <p class="text-sm text-slate-600">Send personalized emails and WhatsApp messages automatically—appointment reminders, order confirmations, payment receipts, customer support, and reports. Available 24/7 without staff intervention.</p>
+              <p class="text-sm text-slate-500 italic mt-2"><strong>Benefit:</strong> Reduce communication workload by 75% • Instant responses • Consistent messaging</p>
+              <ul class="mt-3 text-sm text-slate-600">
+                <li>Automated email & WhatsApp follow-ups & reminders</li>
+                <li>WhatsApp bot for customer support & order updates</li>
+                <li>Email workflows & WhatsApp message scheduling</li>
+                <li>Report distribution & multi-channel notifications</li>
+              </ul>
+            </div>
           </article>
 
           <!-- Customer Service Automation -->
           <article class="p-6 rounded-2xl glass shadow transition hover:scale-[1.02] hover:shadow-lg">
-            <div class="flex items-center gap-3 mb-3">
-              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[#3A86FF] to-[#7B2CBF] text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+            <div class="flex items-center justify-between gap-3 mb-3 cursor-pointer" onclick="toggleCard(this)">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[#3A86FF] to-[#7B2CBF] text-white">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                </div>
+                <h3 class="text-sm md:text-lg font-semibold">Customer Service Automation</h3>
               </div>
-              <h3 class="text-lg font-semibold">Customer Service Automation</h3>
+              <div class="chevron-icon w-8 h-8 rounded-full bg-gradient-to-tr from-[#3A86FF] to-[#7B2CBF] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </div>
             </div>
-            <p class="text-sm text-slate-600">AI chatbots handle routine inquiries instantly 24/7. Provide order status, process refund requests, and route complex issues to agents with full context.</p>
-            <p class="text-sm text-slate-500 italic mt-2"><strong>Benefit:</strong> Handle 70-80% of inquiries automatically • Instant responses • 24/7 availability</p>
-            <ul class="mt-3 text-sm text-slate-600">
-              <li>AI chatbots for instant responses</li>
-              <li>Order status & tracking automation</li>
-              <li>Ticket routing & escalation</li>
-            </ul>
+            <div class="card-content hidden">
+              <p class="text-sm text-slate-600">AI chatbots handle routine inquiries instantly 24/7. Provide order status, process refund requests, and route complex issues to agents with full context.</p>
+              <p class="text-sm text-slate-500 italic mt-2"><strong>Benefit:</strong> Handle 70-80% of inquiries automatically • Instant responses • 24/7 availability</p>
+              <ul class="mt-3 text-sm text-slate-600">
+                <li>AI chatbots for instant responses</li>
+                <li>Order status & tracking automation</li>
+                <li>Ticket routing & escalation</li>
+              </ul>
+            </div>
           </article>
         </div>
 
         <!-- Second Row: Billing & Invoice, Payroll, Hospital & Healthcare -->
-        <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6">
           <!-- Billing & Invoice Automation -->
           <article class="p-6 rounded-2xl glass shadow transition hover:scale-[1.02] hover:shadow-lg">
-            <div class="flex items-center gap-3 mb-3">
-              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[#3A86FF] to-[#7B2CBF] text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6M3 7h18M7 21h10a2 2 0 002-2V7"/></svg>
+            <div class="flex items-center justify-between gap-3 mb-3 cursor-pointer" onclick="toggleCard(this)">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[#3A86FF] to-[#7B2CBF] text-white">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6M3 7h18M7 21h10a2 2 0 002-2V7"/></svg>
+                </div>
+                <h3 class="text-sm md:text-lg font-semibold">Billing & Invoice Automation</h3>
               </div>
-              <h3 class="text-lg font-semibold">Billing & Invoice Automation</h3>
+              <div class="chevron-icon w-8 h-8 rounded-full bg-gradient-to-tr from-[#3A86FF] to-[#7B2CBF] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </div>
             </div>
-            <p class="text-sm text-slate-600">Extract data from invoices via OCR, validate amounts, detect duplicates, and auto-enter into ERP/accounting systems. Eliminate manual data entry and errors.</p>
-            <p class="text-sm text-slate-500 italic mt-2"><strong>Benefit:</strong> Process 100 invoices in 30 min • 99.9% accuracy • Instant payments</p>
-            <ul class="mt-3 text-sm text-slate-600">
-              <li>OCR & invoice data extraction</li>
-              <li>Auto-entry to ERPs / Excel</li>
-              <li>Duplicate detection & validation</li>
-            </ul>
+            <div class="card-content hidden">
+              <p class="text-sm text-slate-600">Extract data from invoices via OCR, validate amounts, detect duplicates, and auto-enter into ERP/accounting systems. Eliminate manual data entry and errors.</p>
+              <p class="text-sm text-slate-500 italic mt-2"><strong>Benefit:</strong> Process 100 invoices in 30 min • 99.9% accuracy • Instant payments</p>
+              <ul class="mt-3 text-sm text-slate-600">
+                <li>OCR & invoice data extraction</li>
+                <li>Auto-entry to ERPs / Excel</li>
+                <li>Duplicate detection & validation</li>
+              </ul>
+            </div>
           </article>
 
           <!-- Payroll Automation -->
           <article class="p-6 rounded-2xl glass shadow transition hover:scale-[1.02] hover:shadow-lg">
-            <div class="flex items-center gap-3 mb-3">
-              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[#3A86FF] to-[#7B2CBF] text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6M3 7h18M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            <div class="flex items-center justify-between gap-3 mb-3 cursor-pointer" onclick="toggleCard(this)">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[#3A86FF] to-[#7B2CBF] text-white">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6M3 7h18M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                </div>
+                <h3 class="text-sm md:text-lg font-semibold">Payroll Automation</h3>
               </div>
-              <h3 class="text-lg font-semibold">Payroll Automation</h3>
+              <div class="chevron-icon w-8 h-8 rounded-full bg-gradient-to-tr from-[#3A86FF] to-[#7B2CBF] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </div>
             </div>
-            <p class="text-sm text-slate-600">Reconcile attendance, calculate overtime, apply leave balances, and generate payslips automatically. Eliminate errors and compliance issues.</p>
-            <p class="text-sm text-slate-500 italic mt-2"><strong>Benefit:</strong> Process payroll in 2 hours vs 3 days • Zero errors • 100% compliance</p>
-            <ul class="mt-3 text-sm text-slate-600">
-              <li>Auto payroll calculations</li>
-              <li>Integration with attendance systems</li>
-              <li>Payslip & approval workflows</li>
-            </ul>
+            <div class="card-content hidden">
+              <p class="text-sm text-slate-600">Reconcile attendance, calculate overtime, apply leave balances, and generate payslips automatically. Eliminate errors and compliance issues.</p>
+              <p class="text-sm text-slate-500 italic mt-2"><strong>Benefit:</strong> Process payroll in 2 hours vs 3 days • Zero errors • 100% compliance</p>
+              <ul class="mt-3 text-sm text-slate-600">
+                <li>Auto payroll calculations</li>
+                <li>Integration with attendance systems</li>
+                <li>Payslip & approval workflows</li>
+              </ul>
+            </div>
           </article>
 
           <!-- Hospital & Healthcare Automation -->
           <article class="p-6 rounded-2xl glass shadow transition hover:scale-[1.02] hover:shadow-lg">
-            <div class="flex items-center gap-3 mb-3">
-              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[#3A86FF] to-[#7B2CBF] text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+            <div class="flex items-center justify-between gap-3 mb-3 cursor-pointer" onclick="toggleCard(this)">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[#3A86FF] to-[#7B2CBF] text-white">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                </div>
+                <h3 class="text-sm md:text-lg font-semibold">Hospital & Healthcare Automation</h3>
               </div>
-              <h3 class="text-lg font-semibold">Hospital & Healthcare Automation</h3>
+              <div class="chevron-icon w-8 h-8 rounded-full bg-gradient-to-tr from-[#3A86FF] to-[#7B2CBF] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </div>
             </div>
-            <p class="text-sm text-slate-600">Automate patient registration, appointment reminders, insurance verification, medical records, and inventory alerts. Reduce admin work and improve patient care efficiency.</p>
-            <p class="text-sm text-slate-500 italic mt-2"><strong>Benefit:</strong> Reduce admin by 60% • Better patient experience • Zero stockouts</p>
-            <ul class="mt-3 text-sm text-slate-600">
-              <li>Patient registration & appointment scheduling</li>
-              <li>Medical records & billing automation</li>
-              <li>Inventory management & alerts</li>
-            </ul>
+            <div class="card-content hidden">
+              <p class="text-sm text-slate-600">Automate patient registration, appointment reminders, insurance verification, medical records, and inventory alerts. Reduce admin work and improve patient care efficiency.</p>
+              <p class="text-sm text-slate-500 italic mt-2"><strong>Benefit:</strong> Reduce admin by 60% • Better patient experience • Zero stockouts</p>
+              <ul class="mt-3 text-sm text-slate-600">
+                <li>Patient registration & appointment scheduling</li>
+                <li>Medical records & billing automation</li>
+                <li>Inventory management & alerts</li>
+              </ul>
+            </div>
           </article>
         </div>
 
         <!-- Third Row: School & Education, Data Entry, Timetable -->
-        <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6">
           <!-- School & Education Automation -->
           <article class="p-6 rounded-2xl glass shadow transition hover:scale-[1.02] hover:shadow-lg">
-            <div class="flex items-center gap-3 mb-3">
-              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[#3A86FF] to-[#7B2CBF] text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+            <div class="flex items-center justify-between gap-3 mb-3 cursor-pointer" onclick="toggleCard(this)">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[#3A86FF] to-[#7B2CBF] text-white">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                </div>
+                <h3 class="text-sm md:text-lg font-semibold">School & Education Automation</h3>
               </div>
-              <h3 class="text-lg font-semibold">School & Education Automation</h3>
+              <div class="chevron-icon w-8 h-8 rounded-full bg-gradient-to-tr from-[#3A86FF] to-[#7B2CBF] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </div>
             </div>
-            <p class="text-sm text-slate-600">Streamline student enrollment, automate fee reminders, compile attendance, generate report cards, and send parent notifications instantly.</p>
-            <p class="text-sm text-slate-500 italic mt-2"><strong>Benefit:</strong> Reduce admin workload by 65% • Better parent engagement • Fewer errors</p>
-            <ul class="mt-3 text-sm text-slate-600">
-              <li>Student enrollment & fee management</li>
-              <li>Attendance tracking & report generation</li>
-              <li>Parent communication automation</li>
-            </ul>
+            <div class="card-content hidden">
+              <p class="text-sm text-slate-600">Streamline student enrollment, automate fee reminders, compile attendance, generate report cards, and send parent notifications instantly.</p>
+              <p class="text-sm text-slate-500 italic mt-2"><strong>Benefit:</strong> Reduce admin workload by 65% • Better parent engagement • Fewer errors</p>
+              <ul class="mt-3 text-sm text-slate-600">
+                <li>Student enrollment & fee management</li>
+                <li>Attendance tracking & report generation</li>
+                <li>Parent communication automation</li>
+              </ul>
+            </div>
           </article>
 
           <!-- Data Entry Automation -->
           <article class="p-6 rounded-2xl glass shadow transition hover:scale-[1.02] hover:shadow-lg">
-            <div class="flex items-center gap-3 mb-3">
-              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[#3A86FF] to-[#7B2CBF] text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            <div class="flex items-center justify-between gap-3 mb-3 cursor-pointer" onclick="toggleCard(this)">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[#3A86FF] to-[#7B2CBF] text-white">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                </div>
+                <h3 class="text-sm md:text-lg font-semibold">Data Entry Automation</h3>
               </div>
-              <h3 class="text-lg font-semibold">Data Entry Automation</h3>
+              <div class="chevron-icon w-8 h-8 rounded-full bg-gradient-to-tr from-[#3A86FF] to-[#7B2CBF] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </div>
             </div>
-            <p class="text-sm text-slate-600">Extract data from forms, emails, and PDFs using OCR. Validate, detect duplicates, and auto-post to databases or ERP instantly without manual typing.</p>
-            <p class="text-sm text-slate-500 italic mt-2"><strong>Benefit:</strong> Process 500 records in 1 hour • 99%+ accuracy • Zero typing errors</p>
-            <ul class="mt-3 text-sm text-slate-600">
-              <li>OCR & document data extraction</li>
-              <li>Form processing & validation</li>
-              <li>Database & ERP auto-entry</li>
-            </ul>
+            <div class="card-content hidden">
+              <p class="text-sm text-slate-600">Extract data from forms, emails, and PDFs using OCR. Validate, detect duplicates, and auto-post to databases or ERP instantly without manual typing.</p>
+              <p class="text-sm text-slate-500 italic mt-2"><strong>Benefit:</strong> Process 500 records in 1 hour • 99%+ accuracy • Zero typing errors</p>
+              <ul class="mt-3 text-sm text-slate-600">
+                <li>OCR & document data extraction</li>
+                <li>Form processing & validation</li>
+                <li>Database & ERP auto-entry</li>
+              </ul>
+            </div>
           </article>
 
           <!-- Timetable Automation -->
           <article class="p-6 rounded-2xl glass shadow transition hover:scale-[1.02] hover:shadow-lg">
-            <div class="flex items-center gap-3 mb-3">
-              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[#3A86FF] to-[#7B2CBF] text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3M3 11h18M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            <div class="flex items-center justify-between gap-3 mb-3 cursor-pointer" onclick="toggleCard(this)">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[#3A86FF] to-[#7B2CBF] text-white">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3M3 11h18M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                </div>
+                <h3 class="text-sm md:text-lg font-semibold">Timetable Automation</h3>
               </div>
-              <h3 class="text-lg font-semibold">Timetable Automation</h3>
+              <div class="chevron-icon w-8 h-8 rounded-full bg-gradient-to-tr from-[#3A86FF] to-[#7B2CBF] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </div>
             </div>
-            <p class="text-sm text-slate-600">Generate optimized timetables and shift schedules automatically. Balance teacher/staff availability, rooms, and resources. Adapt instantly when changes occur.</p>
-            <p class="text-sm text-slate-500 italic mt-2"><strong>Benefit:</strong> Save 60+ hours/month • Reduce scheduling errors by 95% • Instant updates</p>
-            <ul class="mt-3 text-sm text-slate-600">
-              <li>Auto-generation of timetables</li>
-              <li>Shift & roster synchronization</li>
-              <li>Notifications & calendar exports</li>
-            </ul>
+            <div class="card-content hidden">
+              <p class="text-sm text-slate-600">Generate optimized timetables and shift schedules automatically. Balance teacher/staff availability, rooms, and resources. Adapt instantly when changes occur.</p>
+              <p class="text-sm text-slate-500 italic mt-2"><strong>Benefit:</strong> Save 60+ hours/month • Reduce scheduling errors by 95% • Instant updates</p>
+              <ul class="mt-3 text-sm text-slate-600">
+                <li>Auto-generation of timetables</li>
+                <li>Shift & roster synchronization</li>
+                <li>Notifications & calendar exports</li>
+              </ul>
+            </div>
           </article>
         </div>
 
         <!-- Fourth Row: Staff & HR, Power Apps & BI, Inventory Management -->
-        <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6">
           <!-- Staff & HR Automation -->
           <article class="p-6 rounded-2xl glass shadow transition hover:scale-[1.02] hover:shadow-lg">
-            <div class="flex items-center gap-3 mb-3">
-              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[#3A86FF] to-[#7B2CBF] text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+            <div class="flex items-center justify-between gap-3 mb-3 cursor-pointer" onclick="toggleCard(this)">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[#3A86FF] to-[#7B2CBF] text-white">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                </div>
+                <h3 class="text-sm md:text-lg font-semibold">Staff & HR Automation</h3>
               </div>
-              <h3 class="text-lg font-semibold">Staff & HR Automation</h3>
+              <div class="chevron-icon w-8 h-8 rounded-full bg-gradient-to-tr from-[#3A86FF] to-[#7B2CBF] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </div>
             </div>
-            <p class="text-sm text-slate-600">Automate onboarding, attendance syncing, performance tracking, and contract renewals. Streamline document workflows and ID generation instantly.</p>
-            <p class="text-sm text-slate-500 italic mt-2"><strong>Benefit:</strong> Reduce HR workload by 70% • Onboarding in 2 hours • Better tracking</p>
-            <ul class="mt-3 text-sm text-slate-600">
-              <li>Attendance & shift allocation</li>
-              <li>Document workflows & ID generation</li>
-              <li>Performance & payroll tie-in</li>
-            </ul>
+            <div class="card-content hidden">
+              <p class="text-sm text-slate-600">Automate onboarding, attendance syncing, performance tracking, and contract renewals. Streamline document workflows and ID generation instantly.</p>
+              <p class="text-sm text-slate-500 italic mt-2"><strong>Benefit:</strong> Reduce HR workload by 70% • Onboarding in 2 hours • Better tracking</p>
+              <ul class="mt-3 text-sm text-slate-600">
+                <li>Attendance & shift allocation</li>
+                <li>Document workflows & ID generation</li>
+                <li>Performance & payroll tie-in</li>
+              </ul>
+            </div>
           </article>
 
           <!-- Power Apps & Power BI -->
           <article class="p-6 rounded-2xl glass shadow transition hover:scale-[1.02] hover:shadow-lg">
-            <div class="flex items-center gap-3 mb-3">
-              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[#3A86FF] to-[#7B2CBF] text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+            <div class="flex items-center justify-between gap-3 mb-3 cursor-pointer" onclick="toggleCard(this)">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[#3A86FF] to-[#7B2CBF] text-white">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                </div>
+                <h3 class="text-sm md:text-lg font-semibold">Power Apps & Power BI</h3>
               </div>
-              <h3 class="text-lg font-semibold">Power Apps & Power BI</h3>
+              <div class="chevron-icon w-8 h-8 rounded-full bg-gradient-to-tr from-[#3A86FF] to-[#7B2CBF] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </div>
             </div>
-            <p class="text-sm text-slate-600">Build custom dashboards showing real-time automation ROI, cost savings, and business KPIs. Access on any device with instant, automated updates.</p>
-            <p class="text-sm text-slate-500 italic mt-2"><strong>Benefit:</strong> Real-time insights • Data-driven decisions • No IT dependency</p>
-            <ul class="mt-3 text-sm text-slate-600">
-              <li>Custom dashboards & alerts</li>
-              <li>Supabase / SQL integration</li>
-              <li>Automated report distribution</li>
-            </ul>
+            <div class="card-content hidden">
+              <p class="text-sm text-slate-600">Build custom dashboards showing real-time automation ROI, cost savings, and business KPIs. Access on any device with instant, automated updates.</p>
+              <p class="text-sm text-slate-500 italic mt-2"><strong>Benefit:</strong> Real-time insights • Data-driven decisions • No IT dependency</p>
+              <ul class="mt-3 text-sm text-slate-600">
+                <li>Custom dashboards & alerts</li>
+                <li>Supabase / SQL integration</li>
+                <li>Automated report distribution</li>
+              </ul>
+            </div>
           </article>
 
           <!-- Inventory Management Automation -->
           <article class="p-6 rounded-2xl glass shadow transition hover:scale-[1.02] hover:shadow-lg">
-            <div class="flex items-center gap-3 mb-3">
-              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[#3A86FF] to-[#7B2CBF] text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+            <div class="flex items-center justify-between gap-3 mb-3 cursor-pointer" onclick="toggleCard(this)">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[#3A86FF] to-[#7B2CBF] text-white">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+                </div>
+                <h3 class="text-sm md:text-lg font-semibold">Inventory Management Automation</h3>
               </div>
-              <h3 class="text-lg font-semibold">Inventory Management Automation</h3>
+              <div class="chevron-icon w-8 h-8 rounded-full bg-gradient-to-tr from-[#3A86FF] to-[#7B2CBF] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </div>
             </div>
-            <p class="text-sm text-slate-600">Track stock in real-time, send low-stock alerts, generate purchase orders automatically, and reconcile inventory instantly. Eliminate stockouts and overstocking.</p>
-            <p class="text-sm text-slate-500 italic mt-2"><strong>Benefit:</strong> Save 12+ hours/week • Zero stockouts • Reduce overstock by 30%</p>
-            <ul class="mt-3 text-sm text-slate-600">
-              <li>Real-time stock tracking & alerts</li>
-              <li>Automated purchase order generation</li>
-              <li>Stock reconciliation & reporting</li>
-            </ul>
+            <div class="card-content hidden">
+              <p class="text-sm text-slate-600">Track stock in real-time, send low-stock alerts, generate purchase orders automatically, and reconcile inventory instantly. Eliminate stockouts and overstocking.</p>
+              <p class="text-sm text-slate-500 italic mt-2"><strong>Benefit:</strong> Save 12+ hours/week • Zero stockouts • Reduce overstock by 30%</p>
+              <ul class="mt-3 text-sm text-slate-600">
+                <li>Real-time stock tracking & alerts</li>
+                <li>Automated purchase order generation</li>
+                <li>Stock reconciliation & reporting</li>
+              </ul>
+            </div>
           </article>
         </div>
       </div>
     </section>
 
     <!-- Why RPA, BPA & Intelligent Automation -->
-    <section id="why-automation" class="max-w-7xl mx-auto px-5 md:px-8 py-10 z-20 relative">
-      <div class="text-center mb-8">
-        <h2 class="text-3xl font-poppins font-bold">Why RPA, BPA, Intelligent Automation & Agentic AI?</h2>
+    <section id="why-automation" class="max-w-7xl mx-auto px-5 md:px-8 py-6 md:py-10 z-20 relative mobile-collapsible">
+      <div class="text-center mb-2 md:mb-8">
+        <h2 class="text-xl md:text-3xl font-poppins font-bold">Why RPA, BPA, Intelligent Automation & Agentic AI?</h2>
         <p class="mt-2 text-lg text-slate-600">How Automation Transforms Your Business</p>
         <p class="mt-3 text-slate-600 max-w-3xl mx-auto leading-relaxed">
           We leverage RPA, BPA, Intelligent Automation, and Agentic AI to streamline workflows, add AI capabilities, and enable autonomous decision-making — delivering maximum value to your business.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
         <!-- Reduced Manual Effort -->
         <article class="p-6 rounded-2xl glass shadow-sm">
-          <div class="flex items-center gap-3 mb-3">
-            <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <div class="flex items-center justify-between gap-3 mb-3 md:cursor-default cursor-pointer" onclick="toggleMobileCard(this)">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <h3 class="text-sm md:text-lg font-semibold">Reduced Manual Effort</h3>
             </div>
-            <h3 class="text-lg font-semibold">Reduced Manual Effort</h3>
+            <div class="chevron-mobile w-8 h-8 rounded-full bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg" style="display: none;">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </div>
           </div>
-          <p class="text-sm text-slate-600 leading-relaxed"><strong class="font-semibold text-slate-800">Automate repetitive tasks so teams can focus on high-value work.</strong> Eliminate hours of manual data entry, copy-paste work, and routine processing—freeing employees for strategic activities that grow your business.</p>
+          <div class="card-content-mobile hidden md:!block">
+            <p class="text-sm text-slate-600 leading-relaxed"><strong class="font-semibold text-slate-800">Automate repetitive tasks so teams can focus on high-value work.</strong> Eliminate hours of manual data entry, copy-paste work, and routine processing—freeing employees for strategic activities that grow your business.</p>
+          </div>
         </article>
 
         <!-- Faster Processing Time -->
         <article class="p-6 rounded-2xl glass shadow-sm">
-          <div class="flex items-center gap-3 mb-3">
-            <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          <div class="flex items-center justify-between gap-3 mb-3 md:cursor-default cursor-pointer" onclick="toggleMobileCard(this)">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              </div>
+              <h3 class="text-sm md:text-lg font-semibold">Faster Processing Time</h3>
             </div>
-            <h3 class="text-lg font-semibold">Faster Processing Time</h3>
+            <div class="chevron-mobile w-8 h-8 rounded-full bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg" style="display: none;">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </div>
           </div>
-          <p class="text-sm text-slate-600 leading-relaxed"><strong class="font-semibold text-slate-800">Complete tasks in minutes instead of hours or days.</strong> Automation processes transactions, documents, and orders at digital speed—24/7, without breaks, delays, or bottlenecks.</p>
+          <div class="card-content-mobile hidden md:!block">
+            <p class="text-sm text-slate-600 leading-relaxed"><strong class="font-semibold text-slate-800">Complete tasks in minutes instead of hours or days.</strong> Automation processes transactions, documents, and orders at digital speed—24/7, without breaks, delays, or bottlenecks.</p>
+          </div>
         </article>
 
         <!-- Error Reduction -->
         <article class="p-6 rounded-2xl glass shadow-sm">
-          <div class="flex items-center gap-3 mb-3">
-            <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <div class="flex items-center justify-between gap-3 mb-3 md:cursor-default cursor-pointer" onclick="toggleMobileCard(this)">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <h3 class="text-sm md:text-lg font-semibold">Error Reduction</h3>
             </div>
-            <h3 class="text-lg font-semibold">Error Reduction</h3>
+            <div class="chevron-mobile w-8 h-8 rounded-full bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg" style="display: none;">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </div>
           </div>
-          <p class="text-sm text-slate-600 leading-relaxed"><strong class="font-semibold text-slate-800">Eliminate costly mistakes and reduce rework.</strong> Automated processes follow rules consistently every time—no typos in data entry, no calculation errors, no missed compliance steps. Achieve near-perfect accuracy.</p>
+          <div class="card-content-mobile hidden md:!block">
+            <p class="text-sm text-slate-600 leading-relaxed"><strong class="font-semibold text-slate-800">Eliminate costly mistakes and reduce rework.</strong> Automated processes follow rules consistently every time—no typos in data entry, no calculation errors, no missed compliance steps. Achieve near-perfect accuracy.</p>
+          </div>
         </article>
 
         <!-- Cost Savings & ROI -->
         <article class="p-6 rounded-2xl glass shadow-sm">
-          <div class="flex items-center gap-3 mb-3">
-            <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <div class="flex items-center justify-between gap-3 mb-3 md:cursor-default cursor-pointer" onclick="toggleMobileCard(this)">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <h3 class="text-sm md:text-lg font-semibold">Cost Savings & ROI</h3>
             </div>
-            <h3 class="text-lg font-semibold">Cost Savings & ROI</h3>
+            <div class="chevron-mobile w-8 h-8 rounded-full bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg" style="display: none;">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </div>
           </div>
-          <p class="text-sm text-slate-600 leading-relaxed"><strong class="font-semibold text-slate-800">Reduce operational costs while increasing output.</strong> Most businesses see ROI within 12-18 months through lower labor costs, fewer errors, and improved efficiency—often saving 30-40% on automated processes.</p>
+          <div class="card-content-mobile hidden md:!block">
+            <p class="text-sm text-slate-600 leading-relaxed"><strong class="font-semibold text-slate-800">Reduce operational costs while increasing output.</strong> Most businesses see ROI within 12-18 months through lower labor costs, fewer errors, and improved efficiency—often saving 30-40% on automated processes.</p>
+          </div>
         </article>
 
         <!-- 24x7 Operations -->
         <article class="p-6 rounded-2xl glass shadow-sm">
-          <div class="flex items-center gap-3 mb-3">
-            <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <div class="flex items-center justify-between gap-3 mb-3 md:cursor-default cursor-pointer" onclick="toggleMobileCard(this)">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <h3 class="text-sm md:text-lg font-semibold">24×7 Operations</h3>
             </div>
-            <h3 class="text-lg font-semibold">24×7 Operations</h3>
+            <div class="chevron-mobile w-8 h-8 rounded-full bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg" style="display: none;">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </div>
           </div>
-          <p class="text-sm text-slate-600 leading-relaxed"><strong class="font-semibold text-slate-800">Work never stops—automation runs 24/7.</strong> Process orders overnight, handle customer requests on weekends, and complete tasks during holidays. Deliver faster service to customers regardless of business hours.</p>
+          <div class="card-content-mobile hidden md:!block">
+            <p class="text-sm text-slate-600 leading-relaxed"><strong class="font-semibold text-slate-800">Work never stops—automation runs 24/7.</strong> Process orders overnight, handle customer requests on weekends, and complete tasks during holidays. Deliver faster service to customers regardless of business hours.</p>
+          </div>
         </article>
 
         <!-- Scalability Without Hiring -->
         <article class="p-6 rounded-2xl glass shadow-sm">
-          <div class="flex items-center gap-3 mb-3">
-            <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/></svg>
+          <div class="flex items-center justify-between gap-3 mb-3 md:cursor-default cursor-pointer" onclick="toggleMobileCard(this)">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/></svg>
+              </div>
+              <h3 class="text-sm md:text-lg font-semibold">Scalability Without Hiring</h3>
             </div>
-            <h3 class="text-lg font-semibold">Scalability Without Hiring</h3>
+            <div class="chevron-mobile w-8 h-8 rounded-full bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg" style="display: none;">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </div>
           </div>
-          <p class="text-sm text-slate-600 leading-relaxed"><strong class="font-semibold text-slate-800">Scale operations without hiring more staff.</strong> Handle 10x more transactions, peak seasons, or business growth with automation—no recruiting, training, or added payroll costs.</p>
+          <div class="card-content-mobile hidden md:!block">
+            <p class="text-sm text-slate-600 leading-relaxed"><strong class="font-semibold text-slate-800">Scale operations without hiring more staff.</strong> Handle 10x more transactions, peak seasons, or business growth with automation—no recruiting, training, or added payroll costs.</p>
+          </div>
         </article>
       </div>
     </section>
 
     <!-- Licensed Partners & Certifications -->
-    <section id="partners" class="bg-white/50 py-10 z-20 relative">
+    <section id="partners" class="bg-white/50 py-6 md:py-10 z-20 relative">
       <div class="max-w-7xl mx-auto px-5 md:px-8">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl font-poppins font-bold mb-3">Licensed Technology Partners</h2>
+        <div class="text-center mb-3 md:mb-12">
+          <h2 class="text-xl md:text-3xl font-poppins font-bold mb-3">Licensed Technology Partners</h2>
           <p class="text-slate-600 max-w-2xl mx-auto">
             As licensed partners with leading automation platforms, we deliver enterprise-grade solutions backed by certified expertise and direct platform support.
           </p>
@@ -800,9 +1092,9 @@
     </section>
 
     <!-- Agentic AI & Intelligent Automation -->
-    <section id="agentic-ai" class="bg-white/50 py-10 z-20 relative">
+    <section id="agentic-ai" class="bg-white/50 py-6 md:py-10 z-20 relative">
       <div class="max-w-7xl mx-auto px-5 md:px-8">
-        <div class="text-center mb-12">
+        <div class="text-center mb-3 md:mb-12">
           <h2 class="text-3xl font-poppins font-bold">Agentic AI & Intelligent Automation</h2>
           <p class="mt-3 text-lg text-slate-700 font-medium max-w-2xl mx-auto">Agentic AI enables autonomous decision-making — the next evolution of automation that learns and adapts.</p>
         </div>
@@ -892,7 +1184,7 @@
     </section>
 
     <!-- SERVICES (short) -->
-    <section id="services" class="max-w-7xl mx-auto px-5 md:px-8 py-10 z-20 relative rounded-2xl bg-gradient-to-r from-[var(--primary)]/10 to-[var(--teal-1)]/10">
+    <section id="services" class="max-w-7xl mx-auto px-5 md:px-8 py-6 md:py-10 z-20 relative rounded-2xl bg-gradient-to-r from-[var(--primary)]/10 to-[var(--teal-1)]/10">
       <div class="text-center mb-6">
         <h3 class="text-2xl font-poppins font-bold">Our Services</h3>
         <p class="mt-2 text-slate-500">RPA, AI, Web & App development, and automation consultancy.</p>
@@ -939,9 +1231,9 @@
     </section>
 
     <!-- How Kagzso Helps Your Business Grow -->
-    <section id="growth" class="max-w-7xl mx-auto px-5 md:px-8 py-10 z-20 relative">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl font-poppins font-bold">How Kagzso Helps Your Business Grow</h2>
+    <section id="growth" class="max-w-7xl mx-auto px-5 md:px-8 py-6 md:py-10 z-20 relative">
+      <div class="text-center mb-3 md:mb-12">
+        <h2 class="text-xl md:text-3xl font-poppins font-bold">How Kagzso Helps Your Business Grow</h2>
         <p class="mt-3 text-slate-600 max-w-2xl mx-auto">A proven path to measurable business transformation</p>
       </div>
 
@@ -1019,14 +1311,14 @@
     </section>
 
     <!-- INDUSTRIES -->
-    <section id="industries" class="bg-white/50 py-10 z-20 relative">
+    <section id="industries" class="bg-white/50 py-6 md:py-10 z-20 relative">
       <div class="max-w-7xl mx-auto px-5 md:px-8">
-        <div class="text-center mb-8">
+        <div class="text-center mb-2 md:mb-8">
           <h3 class="text-2xl font-poppins font-bold">Industries We Serve</h3>
           <p class="mt-2 text-slate-600">Not limited to specific sectors — we deliver automation solutions across ANY industry and ANY business process.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
           <!-- Retail -->
           <article class="p-6 rounded-xl border border-slate-200 bg-white shadow-sm hover:shadow-md transition">
             <div class="flex items-center gap-3 mb-3">
@@ -1127,81 +1419,135 @@
     </section>
 
     <!-- WHY CHOOSE US -->
-    <section id="why" class="bg-white/50 py-10 md:py-12 z-20 relative">
+    <section id="why" class="bg-white/50 py-6 md:py-10 md:py-12 z-20 relative mobile-collapsible">
       <div class="max-w-7xl mx-auto px-4 md:px-8">
-        <h2 class="text-2xl md:text-3xl font-poppins font-bold text-center mb-10">Why Choose Kagzso</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <h2 class="text-xl md:text-3xl font-poppins font-bold text-center mb-10">Why Choose Kagzso</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
           <!-- Real-World Experience -->
           <article class="p-6 rounded-2xl glass shadow-sm">
-            <div class="flex items-center gap-3 mb-3">
-              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+            <div class="flex items-center justify-between gap-3 mb-3 md:cursor-default cursor-pointer" onclick="toggleMobileCard(this)">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+                </div>
+                <h3 class="text-sm md:text-lg font-semibold">Real-World Automation Experience</h3>
               </div>
-              <h3 class="text-lg font-semibold">Real-World Automation Experience</h3>
+              <div class="chevron-mobile w-8 h-8 rounded-full bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg" style="display: none;">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-white transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </div>
             </div>
-            <p class="text-sm text-slate-600 leading-relaxed">Proven track record across diverse industries. Our team brings hands-on experience implementing automation solutions that deliver measurable business results and ROI.</p>
+            <div class="card-content-mobile hidden md:!block">
+              <p class="text-sm text-slate-600 leading-relaxed">Proven track record across diverse industries. Our team brings hands-on experience implementing automation solutions that deliver measurable business results and ROI.</p>
+            </div>
           </article>
 
           <!-- ROI-Focused -->
           <article class="p-6 rounded-2xl glass shadow-sm">
-            <div class="flex items-center gap-3 mb-3">
-              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+            <div class="flex items-center justify-between gap-3 mb-3 md:cursor-default cursor-pointer" onclick="toggleMobileCard(this)">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                </div>
+                <h3 class="text-sm md:text-lg font-semibold">ROI-Focused Approach</h3>
               </div>
-              <h3 class="text-lg font-semibold">ROI-Focused Approach</h3>
+              <div class="chevron-mobile w-8 h-8 rounded-full bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg" style="display: none;">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-white transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </div>
             </div>
-            <p class="text-sm text-slate-600 leading-relaxed">Business outcomes come first. We prioritize automation initiatives based on impact potential and measurable returns, ensuring every project delivers tangible value to your bottom line.</p>
+            <div class="card-content-mobile hidden md:!block">
+              <p class="text-sm text-slate-600 leading-relaxed">Business outcomes come first. We prioritize automation initiatives based on impact potential and measurable returns, ensuring every project delivers tangible value to your bottom line.</p>
+            </div>
           </article>
 
           <!-- Secure Architecture -->
           <article class="p-6 rounded-2xl glass shadow-sm">
-            <div class="flex items-center gap-3 mb-3">
-              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            <div class="flex items-center justify-between gap-3 mb-3 md:cursor-default cursor-pointer" onclick="toggleMobileCard(this)">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                </div>
+                <h3 class="text-sm md:text-lg font-semibold">Secure Enterprise Architecture</h3>
               </div>
-              <h3 class="text-lg font-semibold">Secure Enterprise Architecture</h3>
+              <div class="chevron-mobile w-8 h-8 rounded-full bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg" style="display: none;">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-white transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </div>
             </div>
-            <p class="text-sm text-slate-600 leading-relaxed">Enterprise-grade security built into every solution. We implement robust access controls, data encryption, and compliance standards to protect your sensitive business information.</p>
+            <div class="card-content-mobile hidden md:!block">
+              <p class="text-sm text-slate-600 leading-relaxed">Enterprise-grade security built into every solution. We implement robust access controls, data encryption, and compliance standards to protect your sensitive business information.</p>
+            </div>
           </article>
 
           <!-- Scalable Solutions -->
           <article class="p-6 rounded-2xl glass shadow-sm">
-            <div class="flex items-center gap-3 mb-3">
-              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/></svg>
+            <div class="flex items-center justify-between gap-3 mb-3 md:cursor-default cursor-pointer" onclick="toggleMobileCard(this)">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/></svg>
+                </div>
+                <h3 class="text-sm md:text-lg font-semibold">Scalable Solutions</h3>
               </div>
-              <h3 class="text-lg font-semibold">Scalable Solutions</h3>
+              <div class="chevron-mobile w-8 h-8 rounded-full bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg" style="display: none;">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-white transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </div>
             </div>
-            <p class="text-sm text-slate-600 leading-relaxed">Architecture designed for growth. Our automation solutions scale effortlessly from small deployments to enterprise-wide implementations, adapting to your evolving business needs.</p>
+            <div class="card-content-mobile hidden md:!block">
+              <p class="text-sm text-slate-600 leading-relaxed">Architecture designed for growth. Our automation solutions scale effortlessly from small deployments to enterprise-wide implementations, adapting to your evolving business needs.</p>
+            </div>
           </article>
 
           <!-- Vendor-Agnostic -->
           <article class="p-6 rounded-2xl glass shadow-sm">
-            <div class="flex items-center gap-3 mb-3">
-              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            <div class="flex items-center justify-between gap-3 mb-3 md:cursor-default cursor-pointer" onclick="toggleMobileCard(this)">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                </div>
+                <h3 class="text-sm md:text-lg font-semibold">Vendor-Agnostic Expertise</h3>
               </div>
-              <h3 class="text-lg font-semibold">Vendor-Agnostic Expertise</h3>
+              <div class="chevron-mobile w-8 h-8 rounded-full bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg" style="display: none;">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-white transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </div>
             </div>
-            <p class="text-sm text-slate-600 leading-relaxed">Technology-agnostic approach ensures the best fit. We work with UiPath, Power Automate, custom AI solutions, and other platforms, selecting optimal tools for your specific requirements.</p>
+            <div class="card-content-mobile hidden md:!block">
+              <p class="text-sm text-slate-600 leading-relaxed">Technology-agnostic approach ensures the best fit. We work with UiPath, Power Automate, custom AI solutions, and other platforms, selecting optimal tools for your specific requirements.</p>
+            </div>
           </article>
 
           <!-- Long-Term Partnership -->
           <article class="p-6 rounded-2xl glass shadow-sm">
-            <div class="flex items-center gap-3 mb-3">
-              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+            <div class="flex items-center justify-between gap-3 mb-3 md:cursor-default cursor-pointer" onclick="toggleMobileCard(this)">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] text-white">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                </div>
+                <h3 class="text-sm md:text-lg font-semibold">Long-Term Partnership Mindset</h3>
               </div>
-              <h3 class="text-lg font-semibold">Long-Term Partnership Mindset</h3>
+              <div class="chevron-mobile w-8 h-8 rounded-full bg-gradient-to-tr from-[var(--primary)] to-[var(--teal-1)] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg" style="display: none;">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-white transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </div>
             </div>
-            <p class="text-sm text-slate-600 leading-relaxed">Beyond implementation, we're your strategic automation partner. Ongoing support, continuous optimization, and expansion planning ensure your automation investments deliver lasting value.</p>
+            <div class="card-content-mobile hidden md:!block">
+              <p class="text-sm text-slate-600 leading-relaxed">Beyond implementation, we're your strategic automation partner. Ongoing support, continuous optimization, and expansion planning ensure your automation investments deliver lasting value.</p>
+            </div>
           </article>
         </div>
       </div>
     </section>
 
     <!-- START YOUR AUTOMATION JOURNEY -->
-    <section id="contact" class="max-w-4xl mx-auto px-4 md:px-8 py-10 md:py-12 z-20 relative">
+    <section id="contact" class="max-w-4xl mx-auto px-4 md:px-8 py-6 md:py-10 md:py-12 z-20 relative">
       <div class="rounded-2xl p-6 md:p-10 bg-gradient-to-br from-white to-white/95 shadow-xl border border-white/30">
         <div class="text-center mb-6">
           <h2 class="text-2xl md:text-4xl font-poppins font-bold mb-3">Start Your Automation Journey Today</h2>
@@ -1272,7 +1618,7 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-[#0A0A0A] text-white py-10 z-20 relative">
+    <footer class="bg-[#0A0A0A] text-white py-6 md:py-10 z-20 relative">
       <div class="max-w-7xl mx-auto px-5 md:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
         <div class="flex items-center gap-3">
           <!-- Company Logo -->
@@ -1472,6 +1818,92 @@
         }
       });
     })();
+
+    // Toggle card content with smooth animation - expands all cards in the same row
+    function toggleCard(element) {
+      const card = element.closest('article');
+      const row = card.closest('.grid');
+      const allCardsInRow = row.querySelectorAll('article');
+      
+      // Check if current card is expanded
+      const content = card.querySelector('.card-content');
+      const isCurrentlyExpanded = !content.classList.contains('hidden');
+      
+      // Toggle all cards in the row
+      allCardsInRow.forEach(rowCard => {
+        const rowContent = rowCard.querySelector('.card-content');
+        const rowChevron = rowCard.querySelector('.chevron-icon svg');
+        
+        if (isCurrentlyExpanded) {
+          // Collapse all cards in row
+          rowContent.style.maxHeight = '0px';
+          rowContent.style.opacity = '0';
+          rowContent.style.marginTop = '0px';
+          rowChevron.style.transform = 'rotate(0deg)';
+          
+          setTimeout(() => {
+            rowContent.classList.add('hidden');
+          }, 400);
+        } else {
+          // Expand all cards in row
+          rowContent.classList.remove('hidden');
+          rowContent.style.maxHeight = '0px';
+          rowContent.style.opacity = '0';
+          
+          // Force reflow
+          rowContent.offsetHeight;
+          
+          // Animate
+          rowContent.style.transition = 'max-height 0.4s ease-out, opacity 0.3s ease-out, margin-top 0.3s ease-out';
+          rowContent.style.maxHeight = rowContent.scrollHeight + 'px';
+          rowContent.style.opacity = '1';
+          rowContent.style.marginTop = '12px';
+          rowChevron.style.transform = 'rotate(180deg)';
+        }
+      });
+    }
+
+    // Toggle mobile-only card content (only works on mobile screens)
+    function toggleMobileCard(element) {
+      // Only work on mobile devices
+      if (window.innerWidth > 768) return;
+      
+      const card = element.closest('article');
+      const content = card.querySelector('.card-content-mobile');
+      const chevron = card.querySelector('.chevron-mobile svg');
+      
+      if (content.classList.contains('hidden')) {
+        // Expand card
+        content.classList.remove('hidden');
+        content.style.maxHeight = '0px';
+        content.style.opacity = '0';
+        
+        // Force reflow
+        content.offsetHeight;
+        
+        // Animate
+        content.style.transition = 'max-height 0.4s ease-out, opacity 0.3s ease-out, margin-top 0.3s ease-out';
+        content.style.maxHeight = content.scrollHeight + 'px';
+        content.style.opacity = '1';
+        content.style.marginTop = '12px';
+        
+        // Rotate chevron
+        chevron.style.transform = 'rotate(180deg)';
+      } else {
+        // Collapse card
+        content.style.maxHeight = '0px';
+        content.style.opacity = '0';
+        content.style.marginTop = '0px';
+        
+        // Rotate chevron back
+        chevron.style.transform = 'rotate(0deg)';
+        
+        // Hide after animation
+        setTimeout(() => {
+          content.classList.add('hidden');
+        }, 400);
+      }
+    }
   </script>
 
   <noscript>
@@ -1479,3 +1911,24 @@
   </noscript>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
