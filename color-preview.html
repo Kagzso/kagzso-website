@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KAGZSO Color Options Preview</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      padding: 40px;
+      margin: 0;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 40px;
+    }
+    .preview-box {
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .option-title {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .company-name {
+      display: inline-flex;
+      align-items: center;
+      gap: 0;
+      font-weight: 800;
+      font-size: 48px;
+      letter-spacing: -0.5px;
+    }
+    .company-name .letter {
+      display: inline-block;
+    }
+    
+    /* Current Option */
+    .option-current .letter-1 { color: #3A86FF; }
+    .option-current .letter-2 { color: #2B9EF5; }
+    .option-current .letter-3 { color: #14B8E8; }
+    .option-current .letter-4 { color: #00C9A7; }
+    .option-current .letter-5 { color: #00E5B8; }
+    .option-current .letter-6 { color: #00FFCC; }
+    
+    /* Option 4 - Blue → Green → Purple */
+    .option-4 .letter-1 { color: #3A86FF; }
+    .option-4 .letter-2 { color: #00B4D8; }
+    .option-4 .letter-3 { color: #00D896; }
+    .option-4 .letter-4 { color: #00E676; }
+    .option-4 .letter-5 { color: #9C27B0; }
+    .option-4 .letter-6 { color: #BA68C8; }
+    
+    /* Option 5 - Purple → Blue → Green */
+    .option-5 .letter-1 { color: #7C3AED; }
+    .option-5 .letter-2 { color: #6366F1; }
+    .option-5 .letter-3 { color: #3B82F6; }
+    .option-5 .letter-4 { color: #06B6D4; }
+    .option-5 .letter-5 { color: #10B981; }
+    .option-5 .letter-6 { color: #34D399; }
+    
+    /* Option 6 - Blue → Purple → Green */
+    .option-6 .letter-1 { color: #2563EB; }
+    .option-6 .letter-2 { color: #4F46E5; }
+    .option-6 .letter-3 { color: #7C3AED; }
+    .option-6 .letter-4 { color: #A855F7; }
+    .option-6 .letter-5 { color: #14B8A6; }
+    .option-6 .letter-6 { color: #10B981; }
+    
+    /* Option 7 - Vibrant Mix */
+    .option-7 .letter-1 { color: #3A86FF; }
+    .option-7 .letter-2 { color: #6366F1; }
+    .option-7 .letter-3 { color: #8B5CF6; }
+    .option-7 .letter-4 { color: #A855F7; }
+    .option-7 .letter-5 { color: #14B8A6; }
+    .option-7 .letter-6 { color: #22C55E; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>KAGZSO Color Gradient Options</h1>
+    
+    <div class="preview-box">
+      <div class="option-title">CURRENT (Vivid Blue → Electric Teal)</div>
+      <div class="company-name option-current">
+        <span class="letter letter-1">K</span>
+        <span class="letter letter-2">A</span>
+        <span class="letter letter-3">G</span>
+        <span class="letter letter-4">Z</span>
+        <span class="letter letter-5">S</span>
+        <span class="letter letter-6">O</span>
+      </div>
+    </div>
+    
+    <div class="preview-box">
+      <div class="option-title">OPTION 4 (Blue → Green → Purple)</div>
+      <div class="company-name option-4">
+        <span class="letter letter-1">K</span>
+        <span class="letter letter-2">A</span>
+        <span class="letter letter-3">G</span>
+        <span class="letter letter-4">Z</span>
+        <span class="letter letter-5">S</span>
+        <span class="letter letter-6">O</span>
+      </div>
+    </div>
+    
+    <div class="preview-box">
+      <div class="option-title">OPTION 5 (Purple → Blue → Green)</div>
+      <div class="company-name option-5">
+        <span class="letter letter-1">K</span>
+        <span class="letter letter-2">A</span>
+        <span class="letter letter-3">G</span>
+        <span class="letter letter-4">Z</span>
+        <span class="letter letter-5">S</span>
+        <span class="letter letter-6">O</span>
+      </div>
+    </div>
+    
+    <div class="preview-box">
+      <div class="option-title">OPTION 6 (Blue → Purple → Green)</div>
+      <div class="company-name option-6">
+        <span class="letter letter-1">K</span>
+        <span class="letter letter-2">A</span>
+        <span class="letter letter-3">G</span>
+        <span class="letter letter-4">Z</span>
+        <span class="letter letter-5">S</span>
+        <span class="letter letter-6">O</span>
+      </div>
+    </div>
+    
+    <div class="preview-box">
+      <div class="option-title">OPTION 7 (Vibrant Blue → Purple → Teal → Green Mix)</div>
+      <div class="company-name option-7">
+        <span class="letter letter-1">K</span>
+        <span class="letter letter-2">A</span>
+        <span class="letter letter-3">G</span>
+        <span class="letter letter-4">Z</span>
+        <span class="letter letter-5">S</span>
+        <span class="letter letter-6">O</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
